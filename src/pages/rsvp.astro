@@ -1,0 +1,442 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout title="Confirmer sa présence" activePage="rsvp">
+  <PageHeader title="Confirmer sa présence" />
+
+  <section class="page-content">
+    <div class="container-narrow">
+      <div class="intro-text">
+        <p>Afin de mieux organiser ce week-end et de nous assurer que tout soit parfait pour vous accueillir, merci de confirmer votre présence <strong>avant le [date limite]</strong>.</p>
+        <p>Précisez-nous à quels événements vous pourrez participer et si vous avez des besoins particuliers (régime alimentaire, etc.).</p>
+        <p><strong>Nous avons hâte de célébrer avec vous !</strong></p>
+      </div>
+
+      <form class="rsvp-form" id="rsvpForm">
+        <!-- Informations générales -->
+        <div class="form-section">
+          <h2>Informations générales</h2>
+
+          <div class="form-group">
+            <label for="names">Nom(s) et prénom(s) de tous les invités *</label>
+            <p class="help-text">Merci d'indiquer le nom et prénom de chaque personne concernée par cette réponse (adultes, adolescents, enfants, bébés). Pour les enfants, merci de préciser également leur âge.</p>
+            <p class="help-text example-text"><strong>Exemple :</strong> Jean Dupont (adulte), Marie Dupont (adulte), Lucas Dupont (8 ans), Emma Dupont (3 ans)</p>
+            <textarea id="names" name="names" rows="4" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Téléphone *</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+
+        <!-- Événements -->
+        <div class="form-section">
+          <h2>Je confirme ma présence pour : *</h2>
+
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="events" value="vendredi-ceremonie">
+              <span>Vendredi 2 octobre - Cérémonie hindoue et déjeuner</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="events" value="samedi-eglise">
+              <span>Samedi 3 octobre - Célébration de mariage à l'église</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="events" value="samedi-cocktail">
+              <span>Samedi 3 octobre - Cocktail</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="events" value="samedi-reception">
+              <span>Samedi 3 octobre - Réception (dîner placé et soirée)</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="events" value="dimanche-brunch">
+              <span>Dimanche 4 octobre - Petit-déjeuner Manoir de Kerangosker</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Régimes alimentaires -->
+        <div class="form-section">
+          <h2>Régimes alimentaires et allergies</h2>
+          <div class="form-group">
+            <label for="dietary">Avez-vous des restrictions alimentaires, allergies ou régimes particuliers ?</label>
+            <textarea id="dietary" name="dietary" rows="3" placeholder="Merci de préciser pour chaque personne concernée (végétarien, sans gluten, allergies, etc.)"></textarea>
+          </div>
+        </div>
+
+        <!-- Participation active -->
+        <div class="form-section">
+          <h2>Participation active</h2>
+
+          <div class="form-group">
+            <label>Êtes-vous musicien(ne) ?</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="musician" value="oui">
+                <span>Oui - Instrument : <input type="text" name="instrument" class="inline-input" placeholder="Précisez"></span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="musician" value="non" checked>
+                <span>Non</span>
+              </label>
+            </div>
+            <p class="help-text">Nous organisons peut-être un moment musical convivial et serions ravis de vous inclure !</p>
+          </div>
+
+          <div class="form-group">
+            <label>Seriez-vous intéressé(e) pour participer à la chorale ?</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="chorale" value="oui">
+                <span>Oui, avec plaisir !</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="chorale" value="non" checked>
+                <span>Non, merci</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transport -->
+        <div class="form-section">
+          <h2>Transport</h2>
+
+          <div class="form-group">
+            <label>Covoiturage</label>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="covoiturage" value="propose">
+                <span>Je propose des places dans ma voiture (nombre de places disponibles : <input type="number" name="places" min="1" max="8" class="inline-input inline-number">)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="covoiturage" value="cherche">
+                <span>Je cherche un covoiturage</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="covoiturage" value="non-concerne">
+                <span>Je ne suis pas concerné(e)</span>
+              </label>
+            </div>
+            <p class="help-text">Si vous proposez ou cherchez un covoiturage, nous vous mettrons en relation avec d'autres invités</p>
+          </div>
+
+          <div class="form-group">
+            <label for="ville">Ville de départ (si covoiturage)</label>
+            <input type="text" id="ville" name="ville">
+          </div>
+        </div>
+
+        <!-- Service de garde -->
+        <div class="form-section">
+          <h2>Service de garde d'enfants</h2>
+          <div class="form-group">
+            <label>Si une babysitter est mise à disposition pendant la soirée, seriez-vous intéressé(e) ?</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="babysitter" value="oui">
+                <span>Oui</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="babysitter" value="non">
+                <span>Non</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="babysitter" value="non-concerne" checked>
+                <span>Je ne suis pas concerné(e)</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Messages -->
+        <div class="form-message form-error" id="formError" style="display:none;"></div>
+        <div class="form-message form-success" id="formSuccess" style="display:none;">
+          Merci pour votre réponse ! Nous avons bien reçu votre confirmation.
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">Envoyer ma réponse</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('rsvpForm') as HTMLFormElement;
+  const errorEl = document.getElementById('formError')!;
+  const successEl = document.getElementById('formSuccess')!;
+
+  function showError(msg: string) {
+    errorEl.textContent = msg;
+    errorEl.style.display = 'block';
+    successEl.style.display = 'none';
+    errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      errorEl.style.display = 'none';
+
+      const data = new FormData(form);
+      const names = data.get('names') as string;
+      const email = data.get('email') as string;
+      const phone = data.get('phone') as string;
+
+      if (!names || !email || !phone) {
+        showError('Veuillez remplir tous les champs obligatoires.');
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError('Veuillez entrer une adresse email valide.');
+        return;
+      }
+
+      const events = document.querySelectorAll('input[name="events"]:checked');
+      if (events.length === 0) {
+        showError('Veuillez sélectionner au moins un événement.');
+        return;
+      }
+
+      form.style.display = 'none';
+      successEl.style.display = 'block';
+      successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+</script>
+
+<style>
+  .page-content { padding: 80px 20px; }
+
+  .rsvp-form { max-width: 900px; margin: 0 auto; }
+
+  .form-section {
+    background: var(--color-white);
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: 2px solid var(--color-purple-light);
+    border-top: 4px solid var(--color-lavender);
+  }
+
+  .form-section h2 {
+    font-size: 24px;
+    color: var(--color-dark);
+    margin-bottom: 25px;
+    font-family: var(--font-heading);
+  }
+
+  .form-group { margin-bottom: 25px; }
+
+  .form-group label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: var(--font-body);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: var(--color-white);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-orange);
+    box-shadow: 0 0 0 3px rgba(255, 107, 6, 0.15);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .checkbox-group,
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .checkbox-label,
+  .radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .checkbox-label:hover,
+  .radio-label:hover {
+    background: var(--color-beige);
+    border-color: var(--color-purple-light);
+  }
+
+  .checkbox-label input[type="checkbox"],
+  .radio-label input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-right: 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.2s ease;
+    background: var(--color-white);
+  }
+
+  .radio-label input[type="radio"] {
+    border-radius: 50%;
+  }
+
+  .checkbox-label input[type="checkbox"]:checked,
+  .radio-label input[type="radio"]:checked {
+    background: var(--color-lavender);
+    border-color: var(--color-lavender);
+  }
+
+  .checkbox-label input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+
+  .radio-label input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .checkbox-label span,
+  .radio-label span {
+    font-size: 15px;
+    color: var(--color-text);
+  }
+
+  .inline-input {
+    width: auto;
+    border: 2px solid #e0e0e0;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: var(--font-body);
+    transition: border-color 0.3s ease;
+  }
+
+  .inline-input:focus {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
+  .inline-number { width: 70px; }
+
+  .help-text {
+    font-size: 14px;
+    color: var(--color-text);
+    font-style: italic;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .example-text {
+    background: var(--color-beige);
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-style: normal;
+    border-left: 3px solid var(--color-orange);
+  }
+
+  .form-actions {
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .btn-submit {
+    font-family: var(--font-nav);
+    display: inline-block;
+    padding: 18px 60px;
+    background: var(--color-orange);
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 107, 6, 0.3);
+  }
+
+  .btn-submit:hover {
+    background: var(--color-purple-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(138, 128, 208, 0.4);
+  }
+
+  .form-message {
+    padding: 20px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .form-error {
+    background: #fff0f0;
+    color: #c00;
+    border: 2px solid #fcc;
+  }
+
+  .form-success {
+    background: var(--color-green-light);
+    color: var(--color-dark);
+    border: 2px solid var(--color-green);
+    font-size: 20px;
+    padding: 40px;
+    font-family: var(--font-heading);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .form-section { padding: 30px 25px; }
+  }
+</style>

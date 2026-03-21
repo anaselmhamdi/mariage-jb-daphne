@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout title="Dress Code" activePage="dresscode">
+  <PageHeader title="Dress Code" />
+
+  <section class="page-content">
+    <div class="container-narrow">
+      <div class="weather-info">
+        <h2>Météo en octobre à Pont-Aven</h2>
+        <p><strong>Températures moyennes :</strong> 12-16°C</p>
+        <p>La pluie est possible en Bretagne, prévoyez un parapluie ou une étole !</p>
+      </div>
+
+      <div class="dress-section">
+        <h2>Vendredi - Cérémonie hindoue</h2>
+        <p class="dress-description">Osez les couleurs éclatantes : rouge, orange, fuchsia, turquoise, doré...</p>
+        <p class="dress-avoid"><strong>À éviter :</strong> le noir et le blanc</p>
+        <div class="dress-tip">
+          <p><strong>Conseil :</strong> Les tenues traditionnelles indiennes (saris, kurtas) sont les bienvenues si vous en avez !</p>
+        </div>
+      </div>
+
+      <div class="dress-section">
+        <h2>Samedi - Célébration de mariage et réception</h2>
+        <p class="dress-description">Venez sur votre 31 ! Ambiance Festival de Cannes</p>
+        <div class="dress-tip">
+          <p><strong>Conseil :</strong> Prévoyez une étole ou un châle pour l'église et la fraîcheur bretonne en soirée</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding: 80px 20px;
+  }
+
+  .weather-info {
+    background: var(--color-beige);
+    padding: 30px 40px;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    text-align: center;
+    border: 2px solid var(--color-purple-light);
+  }
+
+  .weather-info h2 {
+    font-size: 26px;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+    font-family: var(--font-heading);
+  }
+
+  .weather-info p {
+    font-size: 17px;
+    color: var(--color-text);
+    margin: 8px 0;
+  }
+
+  .dress-section {
+    background: var(--color-white);
+    padding: 40px 50px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid var(--color-lavender);
+  }
+
+  .dress-section h2 {
+    font-size: 28px;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+  }
+
+  .dress-description {
+    font-size: 18px;
+    color: var(--color-text);
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+
+  .dress-avoid {
+    font-size: 16px;
+    color: var(--color-text);
+    margin-bottom: 20px;
+  }
+
+  .dress-tip {
+    background: var(--color-beige);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border-left: 4px solid var(--color-orange);
+  }
+
+  .dress-tip p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .dress-section { padding: 30px 25px; }
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+const { title, subtitle } = Astro.props;
+---
+
+<section class="page-header">
+  <div class="container">
+    <h1>{title}</h1>
+    {subtitle && <p class="subtitle">{subtitle}</p>}
+  </div>
+</section>
+
+<style>
+  .page-header {
+    padding: 80px 20px 50px;
+    background: radial-gradient(ellipse at 50% 40%, #C2DFFE 0%, #E4F0FF 40%, var(--color-white) 90%);
+    text-align: center;
+    position: relative;
+    border-bottom: 2px solid var(--color-purple-light);
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle, var(--color-lavender) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  .page-header h1 {
+    font-size: 42px;
+    color: var(--color-orange);
+    font-family: var(--font-heading);
+    font-style: italic;
+    margin-bottom: 15px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: var(--color-text);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .page-header h1 { font-size: 36px; }
+  }
+</style>

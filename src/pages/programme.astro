@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout title="Programme" activePage="programme">
+  <PageHeader title="Programme" subtitle="Un week-end entier pour célébrer notre union ! Voici le programme détaillé des festivités." />
+
+  <section class="page-content">
+    <div class="container-narrow">
+      <!-- Vendredi -->
+      <div class="day-section">
+        <h2 class="day-title">Vendredi 2 Octobre 2026</h2>
+        <h3 class="event-title">Cérémonie hindoue & déjeuner</h3>
+
+        <div class="venue-info">
+          <h4>Manoir de Kerangosker</h4>
+          <p class="address">Rue du Hénan, 29930 Pont-Aven</p>
+        </div>
+
+        <div class="schedule">
+          <div class="schedule-item"><strong>7h30</strong> - Cérémonie hindoue traditionnelle</div>
+          <div class="schedule-item"><strong>11h00</strong> - Déjeuner placé</div>
+        </div>
+
+        <p class="info-note">Parking disponible sur place</p>
+        <a href="https://maps.google.com" target="_blank" class="btn-map">Plan d'accès</a>
+
+        <div class="extra-info">
+          <h4>Après-midi libre</h4>
+          <p>Le parc du domaine est à votre disposition pour vous détendre et profiter des lieux.</p>
+        </div>
+      </div>
+
+      <!-- Samedi -->
+      <div class="day-section">
+        <h2 class="day-title">Samedi 3 Octobre 2026</h2>
+        <h3 class="event-title">Célébration de mariage, cocktail et réception</h3>
+
+        <div class="event-block">
+          <div class="time-badge">14h30</div>
+          <h4>Célébration de mariage</h4>
+          <div class="venue-info">
+            <p><strong>Église Saint-Philibert de Trégunc</strong></p>
+            <p class="address">Stang Sant Laorans, 29910 Trégunc</p>
+            <p class="distance">(À 10 minutes en voiture de Pont-Aven)</p>
+          </div>
+          <p class="info-note">Parking sur place</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-map">Plan d'accès</a>
+          <div class="note-box">
+            <p><strong>Note :</strong> Pensez à prendre de la monnaie pour la quête</p>
+          </div>
+        </div>
+
+        <div class="back-to-manoir">
+          <p>Retour au Manoir de Kerangosker</p>
+        </div>
+
+        <div class="event-block">
+          <div class="time-badge">17h30</div>
+          <h4>Cocktail</h4>
+        </div>
+
+        <div class="event-block">
+          <div class="time-badge">20h00</div>
+          <h4>Dîner placé</h4>
+        </div>
+
+        <div class="event-block">
+          <div class="time-badge">22h00</div>
+          <h4>Soirée dansante</h4>
+          <p>(jusqu'à 4h du matin !)</p>
+        </div>
+      </div>
+
+      <!-- Dimanche -->
+      <div class="day-section">
+        <h2 class="day-title">Dimanche 4 Octobre 2026</h2>
+        <h3 class="event-title">Petit-déjeuner</h3>
+
+        <div class="venue-info">
+          <h4>Manoir de Kerangosker</h4>
+        </div>
+
+        <div class="schedule">
+          <div class="schedule-item"><strong>10h00 - 11h30</strong> - Petit-déjeuner</div>
+        </div>
+      </div>
+
+      <!-- Note importante -->
+      <div class="important-note">
+        <h3>Note importante - Photos et téléphones</h3>
+        <p>Afin de vivre pleinement chaque instant avec vous, nous vous demandons de <strong>ne pas utiliser vos téléphones et appareils photos pendant les cérémonies</strong>. Notre photographe professionnel immortalisera ces moments que nous partagerons avec vous après le mariage.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-content { padding: 80px 20px; }
+
+  .day-section {
+    background: var(--color-white);
+    padding: 50px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-left: 8px solid var(--color-lavender);
+  }
+
+  .day-title {
+    font-size: 32px;
+    color: var(--color-dark);
+    font-family: var(--font-heading);
+    margin-bottom: 15px;
+  }
+
+  .event-title {
+    font-size: 24px;
+    color: var(--color-text);
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  .venue-info {
+    background: var(--color-beige);
+    padding: 20px 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+  }
+
+  .venue-info h4 {
+    font-size: 20px;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+  }
+
+  .venue-info .address { font-size: 16px; color: var(--color-text); margin-bottom: 5px; }
+  .venue-info .distance { font-size: 15px; color: var(--color-text); font-style: italic; }
+
+  .schedule { margin: 25px 0; }
+
+  .schedule-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
+    color: var(--color-text);
+  }
+
+  .schedule-item:last-child { border-bottom: none; }
+
+  .info-note {
+    font-size: 15px;
+    color: var(--color-text);
+    margin: 15px 0;
+  }
+
+  .event-block {
+    margin: 30px 0;
+    padding: 25px;
+    background: #f9f9f9;
+    border-radius: 10px;
+  }
+
+  .time-badge {
+    display: inline-block;
+    background: var(--color-orange);
+    color: var(--color-white);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .event-block h4 {
+    font-size: 22px;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+  }
+
+  .note-box {
+    background: var(--color-lavender-light);
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border-left: 4px solid var(--color-lavender);
+  }
+
+  .note-box p { margin: 0; font-size: 15px; color: var(--color-dark); }
+
+  .back-to-manoir {
+    text-align: center;
+    padding: 20px;
+    margin: 30px 0;
+    background: var(--color-beige);
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--color-dark);
+  }
+
+  .extra-info {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 2px dashed #ddd;
+  }
+
+  .extra-info h4 {
+    font-size: 20px;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+  }
+
+  .important-note {
+    background: var(--color-beige);
+    padding: 40px 50px;
+    border-radius: 15px;
+    margin-top: 50px;
+    border-left: 6px solid var(--color-orange);
+  }
+
+  .important-note h3 {
+    font-size: 20px;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+    font-family: var(--font-heading);
+  }
+
+  .important-note p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .day-section { padding: 30px 25px; }
+    .important-note { padding: 30px 25px; }
+  }
+</style>

@@ -1,0 +1,213 @@
+/* ====================================
+   Design Tokens
+   ==================================== */
+:root {
+  --color-lavender: #B6AEFB;
+  --color-lavender-light: #E8E5FE;
+  --color-lavender-pastel: #D5D0FD;
+  --color-orange: #FF6B06;
+  --color-orange-light: #FF9A50;
+  --color-orange-dark: #E05A00;
+  --color-purple-dark: #8A80D0;
+  --color-purple-darker: #6A60B0;
+  --color-purple-light: #D5D0FD;
+  --color-green: #B5EF91;
+  --color-green-light: #E0F9D0;
+  --color-coral: #C8C2FC;
+  --color-sky: #C2DFFE;
+  --color-sky-light: #E4F0FF;
+  --color-dark: #2C2C2C;
+  --color-text: #4A4A4A;
+  --color-light: #F8F6FF;
+  --color-white: #FFFFFF;
+  --color-beige: #F5F3FF;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Cormorant Garamond', serif;
+  --font-nav: 'Raleway', sans-serif;
+}
+
+/* ====================================
+   Reset & Base
+   ==================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  font-size: 17px;
+  line-height: 1.8;
+  background: var(--color-white);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* ====================================
+   Layout
+   ==================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.container-narrow {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* ====================================
+   Decorative — invitation style
+   ==================================== */
+.page-content {
+  border-left: 3px solid var(--color-purple-light);
+  border-right: 3px solid var(--color-purple-light);
+}
+
+.section-accent {
+  text-align: center;
+  padding: 8px 0;
+}
+.section-accent::before {
+  content: '◆';
+  color: var(--color-lavender);
+  font-size: 12px;
+  letter-spacing: 16px;
+}
+
+/* ====================================
+   Shared Components
+   ==================================== */
+.section-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 50px;
+  color: var(--color-orange);
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.section-title-left {
+  font-size: 28px;
+  color: var(--color-orange);
+  font-family: var(--font-heading);
+  font-style: italic;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px dashed var(--color-purple-light);
+}
+
+.btn-primary {
+  font-family: var(--font-nav);
+  display: inline-block;
+  padding: 16px 45px;
+  background: transparent;
+  color: var(--color-lavender);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 2px solid var(--color-lavender);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-lavender);
+  color: var(--color-white);
+  transform: translateY(-3px);
+}
+
+.btn-map {
+  font-family: var(--font-nav);
+  display: inline-block;
+  padding: 10px 25px;
+  background: var(--color-dark);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-map:hover {
+  background: var(--color-orange);
+}
+
+.intro-text {
+  background: var(--color-beige);
+  padding: 40px 50px;
+  border-radius: 15px;
+  margin-bottom: 60px;
+  border-left: 6px solid var(--color-orange);
+}
+
+.intro-text p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 15px;
+}
+
+.intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+.external-link {
+  color: var(--color-orange);
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.external-link:hover {
+  color: var(--color-purple-dark);
+}
+
+/* ====================================
+   Scroll Fade-in
+   ==================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====================================
+   Responsive
+   ==================================== */
+@media (max-width: 768px) {
+  .intro-text {
+    padding: 30px 25px;
+  }
+}

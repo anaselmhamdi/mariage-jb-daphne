@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout title="Liste de mariage" activePage="liste-mariage">
+  <PageHeader title="Liste de mariage" />
+
+  <section class="page-content">
+    <div class="container-narrow">
+      <div class="gift-message">
+        <p>Nous n'avons pas de liste de mariage traditionnelle.</p>
+        <p>Si vous le souhaitez, vous pouvez contribuer à notre voyage de noces ou à nos projets de vie à deux par un don sur notre compte joint.</p>
+
+        <div class="rib-section">
+          <h3>RIB</h3>
+          <p class="rib-placeholder">[Coordonnées bancaires]</p>
+        </div>
+
+        <p class="thank-you">Merci du fond du cœur !</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding: 80px 20px;
+  }
+
+  .gift-message {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .gift-message p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 25px;
+  }
+
+  .rib-section {
+    background: var(--color-beige);
+    padding: 40px;
+    border-radius: 15px;
+    margin: 50px 0;
+    border: 2px solid var(--color-orange);
+  }
+
+  .rib-section h3 {
+    font-size: 24px;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+  }
+
+  .rib-placeholder {
+    font-size: 16px;
+    color: var(--color-text);
+    font-style: italic;
+  }
+
+  .thank-you {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-orange);
+    font-family: var(--font-heading);
+  }
+</style>

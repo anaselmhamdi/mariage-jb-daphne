@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const incontournables = [
+  { emoji: '🎨', title: 'Les galeries d\'art', description: 'Flânez dans les ruelles pavées et découvrez les nombreuses galeries qui font la renommée de la cité des peintres', color: 'purple' },
+  { emoji: '🏞️', title: 'Promenade le long de l\'Aven', description: 'Balade romantique au bord de la rivière, entre moulins et lavoirs historiques', color: 'sky' },
+  { emoji: '🥞', title: 'Les célèbres galettes', description: 'Dégustez les galettes bretonnes et les fameuses crêperies du centre-ville', color: 'orange' },
+  { emoji: '🖼️', title: 'Musée de Pont-Aven', description: 'Sur les traces de Gauguin et de l\'École de Pont-Aven — un musée incontournable', color: 'purple' },
+  { emoji: '🌳', title: 'Bois d\'Amour', description: 'Promenade bucolique à 5 min à pied du centre, lieu d\'inspiration des peintres impressionnistes', color: 'green' },
+];
+
+const alentours = [
+  { emoji: '🏖️', title: 'Les plages', description: 'Plages du Pouldu et de Trégunc — sable fin et eaux turquoise à 15-20 min en voiture', color: 'sky' },
+  { emoji: '🏰', title: 'Concarneau — Ville Close', description: 'Cité fortifiée médiévale entourée de remparts, port de pêche et restaurants de fruits de mer (15 min)', color: 'sunset' },
+  { emoji: '🏛️', title: 'Quimperlé', description: 'Charmante cité médiévale au confluent de deux rivières, avec ses ruelles et maisons à pans de bois (20 min)', color: 'green' },
+];
+---
+
+<BaseLayout title="Découvrir Pont-Aven" activePage="decouvrir">
+  <PageHeader title="Découvrir Pont-Aven" subtitle="Profitez de votre séjour pour découvrir Pont-Aven, la &quot;Cité des Peintres&quot; qui a inspiré Gauguin, et ses environs magnifiques." />
+
+  <section class="page-content">
+    <div class="container-narrow">
+      <div class="discover-section">
+        <h2 class="section-title-left">Incontournables à Pont-Aven</h2>
+        <div class="activity-list">
+          {incontournables.map((item) => (
+            <div class="activity-item fade-in">
+              <div class:list={['activity-img', item.color]}>{item.emoji}</div>
+              <div class="activity-text">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="discover-section">
+        <h2 class="section-title-left">Aux alentours</h2>
+        <div class="activity-list">
+          {alentours.map((item) => (
+            <div class="activity-item fade-in">
+              <div class:list={['activity-img', item.color]}>{item.emoji}</div>
+              <div class="activity-text">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h3>Pour plus d'informations</h3>
+        <p><a href="https://www.pontaven.com/" target="_blank" class="external-link">Office de Tourisme de Pont-Aven</a></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-content { padding: 80px 20px; }
+  .discover-section { margin-bottom: 60px; }
+
+  .activity-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .activity-item {
+    background: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+  }
+
+  .activity-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .activity-img {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+  }
+
+  .activity-img.sky { background: linear-gradient(135deg, #C2DFFE 0%, #E4F0FF 100%); }
+  .activity-img.green { background: linear-gradient(135deg, #B5EF91 0%, #E0F9D0 100%); }
+  .activity-img.orange { background: linear-gradient(135deg, #FF9A50 0%, #FFD4A8 100%); }
+  .activity-img.purple { background: linear-gradient(135deg, #B6AEFB 0%, #D5D0FD 100%); }
+  .activity-img.sunset { background: linear-gradient(135deg, #FF9A50 0%, #C2DFFE 100%); }
+
+  .activity-text {
+    padding: 20px 24px 24px;
+  }
+
+  .activity-item h3 {
+    font-size: 18px;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+  }
+
+  .activity-item p {
+    font-size: 14px;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .info-box {
+    background: var(--color-lavender-light);
+    padding: 30px 40px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid var(--color-lavender);
+  }
+
+  .info-box h3 {
+    font-size: 22px;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+  }
+</style>

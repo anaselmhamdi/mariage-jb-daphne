@@ -1,0 +1,619 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Accueil" activePage="home">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-split">
+      <div class="hero-photo-side">
+        <div class="hero-photo-container">
+          <img src="/images/couple-hero.jpg" alt="Daphné & Jean-Baptiste">
+        </div>
+      </div>
+      <div class="hero-content-side">
+        <div class="hero-text-wrapper">
+          <h1 class="hero-title">On se dit enfin <span class="hero-title-script">oui !</span></h1>
+          <div class="hero-names">Daphné <span class="hero-ampersand">&amp;</span><br>Jean-Baptiste</div>
+          <div class="hero-subtitle">2, 3, 4 octobre 2026</div>
+          <div class="hero-location">Pont-Aven, Bretagne</div>
+          <a href="/rsvp" class="hero-cta">Confirmer votre présence</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Welcome -->
+  <section class="welcome">
+    <div class="container-narrow">
+      <h2>Chère famille et chers amis,</h2>
+      <div class="welcome-text">
+        <p>C'est avec une immense joie que nous vous invitons à célébrer notre union lors d'un week-end exceptionnel à Pont-Aven. Deux jours de festivités vous attendent, mêlant traditions indiennes et bretonnes.</p>
+        <p>Nous avons hâte de vivre ces moments inoubliables à vos côtés.</p>
+      </div>
+      <p class="signature">À très vite !<br><span>Daphné & Jean-Baptiste</span></p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline-section">
+    <div class="container-narrow">
+      <h2 class="section-title">Le week-end en bref</h2>
+
+      <div class="timeline-list">
+        <div class="timeline-event fade-in">
+          <div class="timeline-card-img">
+            <span class="placeholder-txt">Votre photo ici</span>
+          </div>
+          <div class="timeline-card-body">
+            <h3>Vendredi 2 Octobre</h3>
+            <h4>Cérémonie hindoue & Déjeuner</h4>
+            <p>Manoir de Kerangosker</p>
+          </div>
+        </div>
+
+        <div class="timeline-event fade-in">
+          <div class="timeline-card-img">
+            <span class="placeholder-txt">Votre photo ici</span>
+          </div>
+          <div class="timeline-card-body">
+            <h3>Samedi 3 Octobre</h3>
+            <h4>Célébration de mariage, Cocktail & Réception</h4>
+            <p>Église de Trégunc & Manoir de Kerangosker</p>
+          </div>
+        </div>
+
+        <div class="timeline-event fade-in">
+          <div class="timeline-card-img">
+            <span class="placeholder-txt">Votre photo ici</span>
+          </div>
+          <div class="timeline-card-body">
+            <h3>Dimanche 4 Octobre</h3>
+            <h4>Petit-déjeuner</h4>
+            <p>Manoir de Kerangosker</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-center">
+        <a href="/programme" class="btn-primary">Voir le programme détaillé</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Info Cards -->
+  <section class="info-cards-section">
+    <div class="container">
+      <div class="cards-grid">
+        <div class="info-card fade-in">
+          <h3>Programme</h3>
+          <p>Découvrez le déroulé complet du week-end</p>
+          <a href="/programme" class="card-link">Voir le programme</a>
+        </div>
+        <div class="info-card fade-in">
+          <h3>Logements & Transport</h3>
+          <p>Trouvez votre hébergement et les informations de transport</p>
+          <a href="/logements" class="card-link">Voir les options</a>
+        </div>
+        <div class="info-card fade-in">
+          <h3>Dress Code</h3>
+          <p>Conseils vestimentaires pour le week-end</p>
+          <a href="/dresscode" class="card-link">En savoir plus</a>
+        </div>
+        <div class="info-card fade-in">
+          <h3>Découvrir Pont-Aven</h3>
+          <p>Activités et lieux à visiter pendant votre séjour</p>
+          <a href="/decouvrir" class="card-link">Découvrir</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown -->
+  <section class="countdown-section">
+    <div class="container">
+      <h2 class="section-title" style="color: var(--color-dark);">Rendez-vous dans...</h2>
+      <div class="countdown-hero" id="countdown">
+        <div class="countdown-item">
+          <span class="countdown-num" id="days">0</span>
+          <span class="countdown-label">jours</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="hours">0</span>
+          <span class="countdown-label">heures</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="minutes">0</span>
+          <span class="countdown-label">minutes</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="seconds">0</span>
+          <span class="countdown-label">secondes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function updateCountdown() {
+    const target = new Date('2026-10-02T00:00:00').getTime();
+    const now = Date.now();
+    const d = target - now;
+
+    if (d > 0) {
+      const days = Math.floor(d / 86400000);
+      const hours = Math.floor((d % 86400000) / 3600000);
+      const minutes = Math.floor((d % 3600000) / 60000);
+      const seconds = Math.floor((d % 60000) / 1000);
+
+      const el = (id: string) => document.getElementById(id);
+      const dEl = el('days'), hEl = el('hours'), mEl = el('minutes'), sEl = el('seconds');
+      if (dEl) dEl.textContent = String(days);
+      if (hEl) hEl.textContent = String(hours);
+      if (mEl) mEl.textContent = String(minutes);
+      if (sEl) sEl.textContent = String(seconds);
+    } else {
+      const c = document.getElementById('countdown');
+      if (c) c.innerHTML = '<h2 style="color: var(--color-dark); font-size: 2rem;">C\'est aujourd\'hui !</h2>';
+    }
+  }
+
+  if (document.getElementById('countdown')) {
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+</script>
+
+<style>
+  /* Hero */
+  .hero {
+    min-height: auto;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    overflow: visible;
+    background: radial-gradient(ellipse at 50% 20%, #C2DFFE 0%, #E4F0FF 35%, #F5F3FF 70%, var(--color-white) 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle, var(--color-lavender) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  .hero-split {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .hero-photo-side {
+    flex: 0 0 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px 80px 60px;
+  }
+
+  .hero-photo-container {
+    width: 100%;
+    max-width: 550px;
+    height: 750px;
+    position: relative;
+    border: 8px solid var(--color-lavender);
+    outline: 8px solid var(--color-orange);
+    outline-offset: 0px;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 10;
+    line-height: 0;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hero-content-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 60px 60px 40px;
+  }
+
+  .hero-text-wrapper { max-width: 600px; }
+
+  .hero-title {
+    font-size: 28px;
+    color: var(--color-text);
+    margin-top: 60px;
+    margin-bottom: 25px;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+  .hero-title-script {
+    font-family: var(--font-heading);
+    font-size: 52px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--color-orange);
+    margin-left: 5px;
+  }
+
+  .hero-names {
+    font-family: var(--font-heading);
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--color-orange);
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .hero-ampersand {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    color: var(--color-orange);
+    font-weight: 300;
+    font-style: italic;
+    margin: 0 12px;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    color: var(--color-orange);
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+
+  .hero-location {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--color-lavender);
+    margin-bottom: 35px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .hero-cta {
+    font-family: var(--font-nav);
+    display: inline-block;
+    padding: 18px 45px;
+    background: var(--color-lavender);
+    color: var(--color-white);
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 25px rgba(182, 174, 251, 0.5);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .hero-cta:hover {
+    background: var(--color-purple-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(138, 128, 208, 0.6);
+    border-color: var(--color-white);
+  }
+
+  /* Welcome */
+  .welcome {
+    padding: 100px 0;
+    background: var(--color-white);
+  }
+
+  .welcome h2 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-dark);
+    font-weight: 400;
+  }
+
+  .welcome-text {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 19px;
+    line-height: 2;
+    color: var(--color-text);
+  }
+
+  .welcome-text p { margin-bottom: 25px; }
+
+  .signature {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--color-text);
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .signature span {
+    display: block;
+    margin-top: 10px;
+    color: var(--color-orange-dark);
+    font-size: 24px;
+  }
+
+  /* Timeline */
+  .timeline-section {
+    padding: 60px 20px;
+    background: var(--color-white);
+  }
+
+  .timeline-list {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .timeline-event {
+    background: var(--color-white);
+    border: 2px solid var(--color-purple-light);
+    border-radius: 16px;
+    display: flex;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .timeline-event:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(182, 174, 251, 0.25);
+  }
+
+  .timeline-card-img {
+    width: 280px;
+    min-height: 200px;
+    flex-shrink: 0;
+    background: radial-gradient(ellipse at 50% 50%, #C2DFFE 0%, #E4F0FF 60%, #F5F3FF 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .timeline-card-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--color-lavender) 1px, transparent 1px);
+    background-size: 22px 22px;
+    opacity: 0.04;
+  }
+
+  .placeholder-txt {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--color-lavender);
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  .timeline-card-body {
+    padding: 30px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .timeline-event h3 {
+    font-size: 12px;
+    color: var(--color-lavender);
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .timeline-event h4 {
+    font-size: 22px;
+    color: var(--color-orange);
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.3;
+  }
+
+  .timeline-event p {
+    font-size: 16px;
+    color: var(--color-text);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .cta-center {
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  /* Info Cards */
+  .info-cards-section {
+    padding: 80px 0;
+    background: var(--color-beige);
+    border-top: 2px dashed var(--color-purple-light);
+    border-bottom: 2px dashed var(--color-purple-light);
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .info-card {
+    text-align: center;
+    padding: 50px 30px;
+    background: var(--color-white);
+    border-radius: 12px;
+    border: 2px solid var(--color-purple-light);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--color-lavender);
+  }
+
+  .info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .info-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--color-dark);
+  }
+
+  .info-card p {
+    font-size: 15px;
+    color: var(--color-text);
+    margin-bottom: 25px;
+    line-height: 1.7;
+  }
+
+  .card-link {
+    font-family: var(--font-nav);
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    color: var(--color-lavender);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 25px;
+    border: 2px solid var(--color-lavender);
+  }
+
+  .card-link:hover {
+    background: var(--color-lavender);
+    color: var(--color-white);
+  }
+
+  /* Countdown */
+  .countdown-section {
+    padding: 60px 20px;
+    background: radial-gradient(ellipse at 50% 50%, #E8E5FE 0%, #D5D0FD 50%, #B6AEFB 100%);
+    text-align: center;
+    border-top: 3px solid var(--color-lavender);
+    border-bottom: 3px solid var(--color-lavender);
+  }
+
+  .countdown-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .countdown-item {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 28px 32px;
+    border-radius: 12px;
+    min-width: 100px;
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--color-purple-light);
+  }
+
+  .countdown-num {
+    display: block;
+    font-size: 48px;
+    font-family: var(--font-heading);
+    color: var(--color-orange);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .countdown-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-lavender);
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  .countdown-sep {
+    font-size: 36px;
+    color: var(--color-lavender);
+    font-weight: 300;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero-split { flex-direction: column; }
+    .hero-photo-side { flex: 0 0 auto; width: 100%; padding: 40px 30px 20px; }
+    .hero-photo-container { max-width: 400px; }
+    .hero-content-side { width: 100%; padding: 40px 30px 60px; text-align: center; }
+    .hero-names { font-size: 70px; }
+    .hero-ampersand { font-size: 65px; }
+    .hero-title-script { font-size: 40px; }
+    .hero-subtitle { font-size: 20px; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-photo-container { max-width: 320px; }
+    .hero-names { font-size: 55px; }
+    .hero-ampersand { font-size: 50px; }
+    .hero-title { font-size: 24px; }
+    .hero-title-script { font-size: 34px; }
+    .hero-subtitle { font-size: 18px; }
+    .hero-location { font-size: 16px; }
+    .countdown-hero { gap: 15px; }
+    .countdown-num { font-size: 32px; }
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 700px) {
+    .timeline-event { flex-direction: column; }
+    .timeline-card-img { width: 100%; height: 200px; }
+    .timeline-card-body { text-align: center; padding: 24px 24px 28px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 24px; }
+    .hero-names { font-size: 28px; }
+  }
+</style>

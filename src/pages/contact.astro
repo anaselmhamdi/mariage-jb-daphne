@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout title="Nous contacter" activePage="contact">
+  <PageHeader title="Nous contacter" subtitle="Une question ? Besoin d'informations complémentaires ?<br>N'hésitez pas à nous contacter !" />
+
+  <section class="page-content">
+    <div class="container-narrow">
+      <div class="contact-cards">
+        <div class="contact-card">
+          <h3>Daphné</h3>
+          <p class="contact-info">Téléphone : <a href="tel:+33619605383">06 19 60 53 83</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Jean-Baptiste</h3>
+          <p class="contact-info">Téléphone : <a href="tel:+33698934324">06 98 93 43 24</a></p>
+        </div>
+      </div>
+
+      <div class="address-box">
+        <p>
+          <strong>Notre adresse</strong><br>
+          97 rue du Château<br>
+          92600 Asnières-sur-Seine
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding: 80px 20px;
+  }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .contact-card {
+    background: var(--color-white);
+    padding: 50px 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-top: 6px solid var(--color-orange);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .contact-card h3 {
+    font-size: 30px;
+    color: var(--color-orange);
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .contact-info {
+    font-size: 18px;
+    color: var(--color-text);
+  }
+
+  .contact-info a {
+    color: var(--color-orange);
+    font-weight: 600;
+  }
+
+  .contact-info a:hover {
+    color: var(--color-purple-dark);
+    text-decoration: underline;
+  }
+
+  .address-box {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    background: var(--color-beige);
+    border-radius: 15px;
+  }
+
+  .address-box p {
+    font-size: 16px;
+    color: var(--color-text);
+    line-height: 1.8;
+  }
+</style>

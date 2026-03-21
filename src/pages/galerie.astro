@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout title="Galerie photos" activePage="galerie">
+  <PageHeader title="Galerie photos" />
+
+  <section class="page-content">
+    <div class="container-narrow">
+      <div class="coming-soon">
+        <p>Les photos de notre grand jour seront bientôt disponibles ici !</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .coming-soon {
+    text-align: center;
+    padding: 80px 40px;
+    background: var(--color-beige);
+    border-radius: 15px;
+    border: 2px dashed var(--color-orange);
+  }
+
+  .coming-soon p {
+    font-size: 22px;
+    color: var(--color-text);
+    font-family: var(--font-heading);
+  }
+
+  .page-content {
+    padding: 80px 20px;
+  }
+</style>
