@@ -21,7 +21,6 @@ import PageHeader from '../components/PageHeader.astro';
 
       <div class="address-box">
         <p>
-          <strong></strong><br>
           97 rue du Château<br>
           92600 Asnières-sur-Seine
         </p>
@@ -72,7 +71,7 @@ import PageHeader from '../components/PageHeader.astro';
   }
 
   .contact-info a {
-    color: var(--color-orange);
+    color: #333333;
     font-weight: 600;
   }
 
@@ -87,10 +86,13 @@ import PageHeader from '../components/PageHeader.astro';
     padding: 30px;
     background: var(--color-beige);
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .address-box p {
-    font-size: 16px;
+    font-size: 20px;
     color: var(--color-text);
     line-height: 1.8;
   }
