@@ -1,28 +1,65 @@
 /* ====================================
+   Custom Fonts
+   ==================================== */
+@font-face {
+  font-family: 'New Kansas';
+  src: url('/fonts/NewKansas-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'New Kansas';
+  src: url('/fonts/NewKansas-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'New Kansas';
+  src: url('/fonts/NewKansas-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'New Kansas';
+  src: url('/fonts/NewKansas-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ====================================
    Design Tokens
    ==================================== */
 :root {
-  --color-lavender: #B6AEFB;
+  --color-lavender: #9388F7;
   --color-lavender-light: #E8E5FE;
   --color-lavender-pastel: #D5D0FD;
-  --color-orange: #FF6B06;
-  --color-orange-light: #FF9A50;
-  --color-orange-dark: #E05A00;
-  --color-purple-dark: #8A80D0;
-  --color-purple-darker: #6A60B0;
+  --color-orange: #F87E00;
+  --color-orange-light: #FFA81B;
+  --color-orange-dark: #E06F00;
+  --color-purple-dark: #5D4CF0;
+  --color-purple-darker: #4A3BD0;
   --color-purple-light: #D5D0FD;
-  --color-green: #B5EF91;
+  --color-green: #9EEB71;
   --color-green-light: #E0F9D0;
-  --color-coral: #C8C2FC;
-  --color-sky: #C2DFFE;
-  --color-sky-light: #E4F0FF;
-  --color-dark: #2C2C2C;
-  --color-text: #4A4A4A;
+  --color-coral: #FFA9E4;
+  --color-sky: #99CEFF;
+  --color-sky-light: #CCE7FF;
+  --color-red: #D6001C;
+  --color-pink: #FFA9E4;
+  --color-dark: #4A4A4A;
+  --color-text: #5A5A5A;
   --color-light: #F8F6FF;
   --color-white: #FFFFFF;
   --color-beige: #F5F3FF;
-  --font-heading: 'Cormorant Garamond', serif;
-  --font-body: 'Cormorant Garamond', serif;
+  --font-heading: 'New Kansas', 'Cormorant Garamond', serif;
+  --font-body: 'New Kansas', 'Cormorant Garamond', serif;
   --font-nav: 'Raleway', sans-serif;
 }
 
@@ -42,7 +79,8 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--color-text);
-  font-size: 17px;
+  font-size: 14px;
+  font-weight: 100;
   line-height: 1.8;
   background: var(--color-white);
 }
@@ -50,6 +88,7 @@ body {
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 500;
+  font-style: italic;
 }
 
 img {
@@ -100,7 +139,7 @@ a {
    Shared Components
    ==================================== */
 .section-title {
-  font-size: 36px;
+  font-size: 30px;
   text-align: center;
   margin-bottom: 50px;
   color: var(--color-orange);
@@ -110,7 +149,7 @@ a {
 }
 
 .section-title-left {
-  font-size: 28px;
+  font-size: 24px;
   color: var(--color-orange);
   font-family: var(--font-heading);
   font-style: italic;
