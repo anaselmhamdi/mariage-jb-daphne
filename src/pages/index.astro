@@ -171,7 +171,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     align-items: stretch;
     position: relative;
     overflow: visible;
-    background: radial-gradient(ellipse at 50% 20%, #C2DFFE 0%, #E4F0FF 35%, #F5F3FF 70%, var(--color-white) 100%);
+    background: radial-gradient(ellipse at 50% 20%, #C2DFFE 0%, #E4F0FF 30%, #F5F3FF 55%, #FFF0F5 80%, var(--color-white) 100%);
   }
 
   .hero::before {
@@ -253,7 +253,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .hero-names {
     font-family: var(--font-heading);
     font-size: 42px;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-orange);
     margin-bottom: 20px;
     letter-spacing: 3px;
@@ -267,13 +267,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-orange);
     font-weight: 300;
     font-style: italic;
-    margin: 0 12px;
+    margin: 0 4px;
   }
 
   .hero-subtitle {
     font-family: var(--font-heading);
     font-size: 20px;
-    color: var(--color-orange);
+    color: var(--color-purple-dark);
     margin-bottom: 10px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -440,7 +440,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .timeline-event h4 {
     font-size: 22px;
-    color: var(--color-orange);
+    color: var(--color-purple-dark);
     margin-bottom: 8px;
     font-family: var(--font-heading);
     font-weight: 500;
@@ -562,7 +562,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: block;
     font-size: 38px;
     font-family: var(--font-heading);
-    color: var(--color-orange);
+    color: var(--color-purple-dark);
     font-weight: 700;
     line-height: 1;
   }
@@ -586,9 +586,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* Responsive */
   @media (max-width: 1024px) {
     .hero-split { flex-direction: column-reverse; }
-    .hero-photo-side { flex: 0 0 auto; width: 100%; padding: 20px 30px 40px; }
-    .hero-photo-container { max-width: 400px; }
-    .hero-content-side { width: 100%; padding: 40px 30px 60px; text-align: center; }
+    .hero-photo-side { flex: 0 0 auto; width: 100%; padding: 10px 30px 30px; justify-content: center; }
+    .hero-photo-container { max-width: 90%; }
+    .hero-content-side { width: 100%; padding: 0 30px 10px; text-align: center; }
+    .hero-title { margin-top: 50px; margin-bottom: 25px; font-size: 16px; }
+    .hero-title-script { font-size: 20px; }
+    .hero-cta { margin-bottom: 10px; }
     .hero-names { font-size: 50px; }
     .hero-ampersand { font-size: 45px; }
     .hero-title-script { font-size: 32px; }
@@ -596,17 +599,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   @media (max-width: 768px) {
-    .hero-photo-container { max-width: 320px; }
+    .hero-photo-container { max-width: 85%; }
     .hero-names { font-size: 38px; }
     .hero-ampersand { font-size: 34px; }
-    .hero-title { font-size: 20px; }
-    .hero-title-script { font-size: 28px; }
+    .hero-title { font-size: 15px; }
+    .hero-title-script { font-size: 18px; }
     .hero-subtitle { font-size: 16px; }
     .hero-location { font-size: 14px; }
-    .countdown-hero { gap: 10px; flex-wrap: nowrap; }
-    .countdown-item { min-width: 0; flex: 1; padding: 16px 8px; }
-    .countdown-num { font-size: 28px; }
-    .countdown-separator { font-size: 20px; }
+    .hero-cta { font-size: 14px; padding: 14px 30px; letter-spacing: 1px; }
+    .countdown-section { padding: 30px 15px; }
+    .countdown-section .section-title { font-size: 22px; margin-bottom: 25px; }
+    .countdown-hero { gap: 8px; flex-wrap: nowrap; }
+    .countdown-item { min-width: 0; flex: 1; padding: 12px 6px; }
+    .countdown-num { font-size: 20px; }
+    .countdown-label { font-size: 7px; letter-spacing: 0; margin-top: 5px; }
+    .countdown-separator { font-size: 16px; }
     .cards-grid { grid-template-columns: 1fr; }
   }
 
@@ -617,7 +624,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   @media (max-width: 480px) {
-    .hero-title { font-size: 24px; }
-    .hero-names { font-size: 28px; }
+    .hero-title { font-size: 17px; }
+    .hero-title-script { font-size: 21px; }
+    .hero-names { font-size: 34px; letter-spacing: 0px; line-height: 1.5; }
+    .hero-ampersand { font-size: 28px; margin: 0 0 0 -4px; }
+    .hero-subtitle { font-size: 14px; }
+    .hero-location { font-size: 13px; }
+    .hero-cta { font-size: 12px; padding: 12px 25px; letter-spacing: 1px; }
   }
 </style>
