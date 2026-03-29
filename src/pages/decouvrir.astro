@@ -3,17 +3,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 
 const incontournables = [
-  { emoji: '🎨', title: 'Les galeries d\'art', description: 'Flânez dans les ruelles pavées et découvrez les nombreuses galeries qui font la renommée de la cité des peintres', color: 'purple' },
-  { emoji: '🏞️', title: 'Promenade le long de l\'Aven', description: 'Balade romantique au bord de la rivière, entre moulins et lavoirs historiques', color: 'sky' },
-  { emoji: '🥞', title: 'Les célèbres galettes', description: 'Dégustez les galettes bretonnes et les fameuses crêperies du centre-ville', color: 'orange' },
-  { emoji: '🖼️', title: 'Musée de Pont-Aven', description: 'Sur les traces de Gauguin et de l\'École de Pont-Aven — un musée incontournable', color: 'purple' },
-  { emoji: '🌳', title: 'Bois d\'Amour', description: 'Promenade bucolique à 5 min à pied du centre, lieu d\'inspiration des peintres impressionnistes', color: 'green' },
+  { img: '/images/galerie-art.png', title: 'Les galeries d\'art', description: 'Flânez dans les ruelles pavées et découvrez les nombreuses galeries qui font la renommée de la cité des peintres' },
+  { img: '/images/promenade-aven.avif', title: 'Promenade le long de l\'Aven', description: 'Balade romantique au bord de la rivière' },
+  { img: '/images/galettes-pont-aven.jpg', title: 'Les galettes de Pont-Aven', description: 'Après les avoir goûtées, vous n\'appellerez plus "galettes" nos succulentes "crêpes" de blé noir. Goûtez et élisez votre meilleure galette : plutôt Traou Mad ou Isidore Penven ?' },
+  { img: '/images/musee-pont-aven.jpg', title: 'Musée de Pont-Aven', description: 'Sur les traces de Gauguin et de l\'École de Pont-Aven — un musée incontournable' },
+  { img: '/images/bois-damour.webp', title: 'Bois d\'Amour', description: 'Promenade bucolique à 5 min à pied du centre, lieu d\'inspiration des peintres impressionnistes' },
 ];
 
 const alentours = [
-  { emoji: '🏖️', title: 'Les plages', description: 'Plages du Pouldu et de Trégunc — sable fin et eaux turquoise à 15-20 min en voiture', color: 'sky' },
-  { emoji: '🏰', title: 'Concarneau — Ville Close', description: 'Cité fortifiée médiévale entourée de remparts, port de pêche et restaurants de fruits de mer (15 min)', color: 'sunset' },
-  { emoji: '🏛️', title: 'Quimperlé', description: 'Charmante cité médiévale au confluent de deux rivières, avec ses ruelles et maisons à pans de bois (20 min)', color: 'green' },
+  { img: '/images/plages-bretagne.png', title: 'Les plages', description: 'Les plages de Nevez (plage de Tahiti, Saint Nicolas, Dourveil) et Trégunc (Trescao, Feunteun Aodou, Pouldohan) sont à 10 min de Pont-Aven et parmi les plus belles de Bretagne (après celles de Plouguerneau)' },
+  { img: '/images/concarneau.jpg', title: 'Concarneau', description: 'Cité fortifiée médiévale entourée de remparts, port de pêche et restaurants de fruits de mer (15 min)' },
+  { img: '/images/quimperle.jpeg', title: 'Quimperlé', description: 'Charmante cité médiévale au confluent de deux rivières, avec ses ruelles et maisons à pans de bois (20 min)' },
 ];
 ---
 
@@ -27,7 +27,7 @@ const alentours = [
         <div class="activity-list">
           {incontournables.map((item) => (
             <div class="activity-item fade-in">
-              <div class:list={['activity-img', item.color]}>{item.emoji}</div>
+              <div class="activity-img">{item.img ? <img src={item.img} alt={item.title} /> : item.emoji}</div>
               <div class="activity-text">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
@@ -42,7 +42,7 @@ const alentours = [
         <div class="activity-list">
           {alentours.map((item) => (
             <div class="activity-item fade-in">
-              <div class:list={['activity-img', item.color]}>{item.emoji}</div>
+              <div class="activity-img">{item.img ? <img src={item.img} alt={item.title} /> : item.emoji}</div>
               <div class="activity-text">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
@@ -53,8 +53,9 @@ const alentours = [
       </div>
 
       <div class="info-box">
-        <h3>Pour plus d'informations</h3>
+        <h3>Plus d'informations</h3>
         <p><a href="https://www.pontaven.com/" target="_blank" class="external-link">Office de Tourisme de Pont-Aven</a></p>
+        <p><a href="https://www.deconcarneauapontaven.com/" target="_blank" class="external-link">Office de tourisme Concarneau Pont-Aven</a></p>
       </div>
     </div>
   </section>
@@ -90,13 +91,15 @@ const alentours = [
     align-items: center;
     justify-content: center;
     font-size: 3.5rem;
+    background: linear-gradient(135deg, #B6AEFB 0%, #D5D0FD 100%);
+    overflow: hidden;
   }
 
-  .activity-img.sky { background: linear-gradient(135deg, #C2DFFE 0%, #E4F0FF 100%); }
-  .activity-img.green { background: linear-gradient(135deg, #B5EF91 0%, #E0F9D0 100%); }
-  .activity-img.orange { background: linear-gradient(135deg, #FF9A50 0%, #FFD4A8 100%); }
-  .activity-img.purple { background: linear-gradient(135deg, #B6AEFB 0%, #D5D0FD 100%); }
-  .activity-img.sunset { background: linear-gradient(135deg, #FF9A50 0%, #C2DFFE 100%); }
+  .activity-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   .activity-text {
     padding: 20px 24px 24px;

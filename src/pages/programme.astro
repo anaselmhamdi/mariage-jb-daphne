@@ -10,21 +10,31 @@ import PageHeader from '../components/PageHeader.astro';
     <div class="container-narrow">
       <!-- Vendredi -->
       <div class="day-section">
+        <img src="/images/ceremonie-hindoue.png" alt="Cérémonie hindoue" class="day-illustration">
         <h2 class="day-title">Vendredi 2 Octobre 2026</h2>
         <h3 class="event-title">Cérémonie hindoue & déjeuner</h3>
 
         <div class="venue-info">
-          <h4>Manoir de Kerangosker</h4>
-          <p class="address">Rue du Hénan, 29930 Pont-Aven</p>
+          <div class="venue-header">
+            <div>
+              <h4>Manoir de Kerangosker</h4>
+              <p class="address">Rue du Hénan, 29930 Pont-Aven</p>
+            </div>
+            <a href="https://maps.app.goo.gl/SqaVwyHE2Ti1EXJc9" target="_blank" class="btn-map">Plan d'accès</a>
+          </div>
         </div>
 
-        <div class="schedule">
-          <div class="schedule-item"><strong>7h30</strong> - Cérémonie hindoue traditionnelle</div>
-          <div class="schedule-item"><strong>11h00</strong> - Déjeuner placé</div>
+        <div class="event-block">
+          <div class="time-badge">7h30</div>
+          <h4>Cérémonie hindoue traditionnelle</h4>
+        </div>
+        <div class="event-block">
+          <div class="time-badge">11h00</div>
+          <h4>Déjeuner placé</h4>
         </div>
 
         <p class="info-note">Parking disponible sur place</p>
-        <a href="https://maps.google.com" target="_blank" class="btn-map">Plan d'accès</a>
+        <p class="info-note">Accès direct à pied depuis le centre ville par un chemin piéton dans les bois</p>
 
         <div class="extra-info">
           <h4>Après-midi libre</h4>
@@ -34,19 +44,25 @@ import PageHeader from '../components/PageHeader.astro';
 
       <!-- Samedi -->
       <div class="day-section">
+        <img src="/images/eglise.png" alt="Église" class="day-illustration">
         <h2 class="day-title">Samedi 3 Octobre 2026</h2>
-        <h3 class="event-title">Célébration de mariage, cocktail et réception</h3>
+        <h3 class="event-title">Bénédiction de mariage, cocktail et réception</h3>
 
         <div class="event-block">
           <div class="time-badge">14h30</div>
-          <h4>Célébration de mariage</h4>
+          <h4>Bénédiction de mariage</h4>
           <div class="venue-info">
-            <p><strong>Église Saint-Philibert de Trégunc</strong></p>
-            <p class="address">Stang Sant Laorans, 29910 Trégunc</p>
-            <p class="distance">(À 10 minutes en voiture de Pont-Aven)</p>
+            <div class="venue-header">
+              <div>
+                <p><strong>Église Saint-Philibert de Trégunc</strong></p>
+                <p class="address">Stang Sant Laorans, 29910 Trégunc</p>
+                <p class="distance">(À 10 minutes en voiture de Pont-Aven)</p>
+              </div>
+              <a href="https://maps.app.goo.gl/nJYvEQe2mXZXL7Nr8" target="_blank" class="btn-map">Plan d'accès</a>
+            </div>
           </div>
           <p class="info-note">Parking sur place</p>
-          <a href="https://maps.google.com" target="_blank" class="btn-map">Plan d'accès</a>
+          <p class="info-note">L'église est située à deux pas de la plage : si le soleil est au rendez-vous, nous y ferons quelques photos !</p>
           <div class="note-box">
             <p><strong>Note :</strong> Pensez à prendre de la monnaie pour la quête</p>
           </div>
@@ -75,6 +91,7 @@ import PageHeader from '../components/PageHeader.astro';
 
       <!-- Dimanche -->
       <div class="day-section">
+        <img src="/images/reception.png" alt="Petit-déjeuner" class="day-illustration">
         <h2 class="day-title">Dimanche 4 Octobre 2026</h2>
         <h3 class="event-title">Petit-déjeuner</h3>
 
@@ -82,8 +99,9 @@ import PageHeader from '../components/PageHeader.astro';
           <h4>Manoir de Kerangosker</h4>
         </div>
 
-        <div class="schedule">
-          <div class="schedule-item"><strong>10h00 - 11h30</strong> - Petit-déjeuner</div>
+        <div class="event-block">
+          <div class="time-badge">10h00 - 11h30</div>
+          <h4>Petit-déjeuner</h4>
         </div>
       </div>
 
@@ -98,6 +116,12 @@ import PageHeader from '../components/PageHeader.astro';
 
 <style>
   .page-content { padding: 80px 20px; }
+
+  .day-illustration {
+    display: block;
+    max-width: 300px;
+    margin: 0 auto 20px;
+  }
 
   .day-section {
     background: var(--color-white);
@@ -127,6 +151,18 @@ import PageHeader from '../components/PageHeader.astro';
     padding: 20px 25px;
     border-radius: 10px;
     margin-bottom: 25px;
+  }
+
+  .venue-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .venue-header .btn-map {
+    margin: 0;
+    white-space: nowrap;
   }
 
   .venue-info h4 {
@@ -169,8 +205,9 @@ import PageHeader from '../components/PageHeader.astro';
     color: var(--color-white);
     padding: 8px 20px;
     border-radius: 20px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
+    font-family: var(--font-heading);
     margin-bottom: 15px;
   }
 

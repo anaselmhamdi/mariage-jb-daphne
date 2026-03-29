@@ -8,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="hero-split">
       <div class="hero-photo-side">
         <div class="hero-photo-container">
-          <img src="/images/couple-hero.jpg" alt="Daphné & Jean-Baptiste">
+          <img src="/images/couple-hero.png" alt="Daphné & Jean-Baptiste">
         </div>
       </div>
       <div class="hero-content-side">
@@ -26,9 +26,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- Welcome -->
   <section class="welcome">
     <div class="container-narrow">
-      <h2>Chère famille et chers amis,</h2>
+      <h2>Chère famille, chers amis,</h2>
       <div class="welcome-text">
-        <p>C'est avec une immense joie que nous vous invitons à célébrer notre union lors d'un week-end exceptionnel à Pont-Aven. Deux jours de festivités vous attendent, mêlant traditions indiennes et bretonnes.</p>
+        <p>C'est avec une immense joie que nous vous invitons à célébrer notre union lors d'un week-end exceptionnel à Pont-Aven. Deux jours de festivités vous attendent, mêlant cultures indiennes et bretonnes.</p>
         <p>Nous avons hâte de vivre ces moments inoubliables à vos côtés.</p>
       </div>
       <p class="signature">À très vite !<br><span>Daphné & Jean-Baptiste</span></p>
@@ -42,8 +42,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="timeline-list">
         <div class="timeline-event fade-in">
-          <div class="timeline-card-img">
-            <span class="placeholder-txt">Votre photo ici</span>
+          <div class="timeline-card-img no-bg">
+            <img src="/images/ceremonie-hindoue.png" alt="Cérémonie hindoue">
           </div>
           <div class="timeline-card-body">
             <h3>Vendredi 2 Octobre</h3>
@@ -53,19 +53,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="timeline-event fade-in">
-          <div class="timeline-card-img">
-            <span class="placeholder-txt">Votre photo ici</span>
+          <div class="timeline-card-img no-bg">
+            <img src="/images/eglise.png" alt="Église">
           </div>
           <div class="timeline-card-body">
             <h3>Samedi 3 Octobre</h3>
-            <h4>Célébration de mariage, Cocktail & Réception</h4>
+            <h4>Bénédiction de mariage, Cocktail & Réception</h4>
             <p>Église de Trégunc & Manoir de Kerangosker</p>
           </div>
         </div>
 
         <div class="timeline-event fade-in">
-          <div class="timeline-card-img">
-            <span class="placeholder-txt">Votre photo ici</span>
+          <div class="timeline-card-img no-bg">
+            <img src="/images/reception.png" alt="Petit-déjeuner">
           </div>
           <div class="timeline-card-body">
             <h3>Dimanche 4 Octobre</h3>
@@ -85,11 +85,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="info-cards-section">
     <div class="container">
       <div class="cards-grid">
-        <div class="info-card fade-in">
-          <h3>Programme</h3>
-          <p>Découvrez le déroulé complet du week-end</p>
-          <a href="/programme" class="card-link">Voir le programme</a>
-        </div>
         <div class="info-card fade-in">
           <h3>Logements & Transport</h3>
           <p>Trouvez votre hébergement et les informations de transport</p>
@@ -195,35 +190,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     max-width: 1400px;
     margin: 0 auto;
     align-items: center;
+    gap: 0;
   }
 
   .hero-photo-side {
     flex: 0 0 45%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 80px 40px 80px 60px;
+    justify-content: flex-end;
+    padding: 40px 20px 40px 60px;
   }
 
   .hero-photo-container {
     width: 100%;
-    max-width: 550px;
-    height: 750px;
+    max-width: 620px;
+    height: auto;
     position: relative;
-    border: 8px solid var(--color-lavender);
-    outline: 8px solid var(--color-orange);
-    outline-offset: 0px;
-    border-radius: 20px;
+    border: none;
+    outline: none;
+    border-radius: 0;
     overflow: hidden;
     z-index: 10;
     line-height: 0;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
   }
 
   .hero-photo-container img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center center;
   }
 
@@ -232,7 +227,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 60px 60px 40px;
+    padding: 40px 60px 40px 20px;
   }
 
   .hero-text-wrapper { max-width: 600px; }
@@ -277,7 +272,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .hero-subtitle {
     font-family: var(--font-heading);
-    font-size: 22px;
+    font-size: 25px;
     color: var(--color-orange);
     margin-bottom: 10px;
     font-weight: 600;
@@ -286,7 +281,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .hero-location {
     font-family: var(--font-heading);
-    font-size: 20px;
+    font-size: 25px;
     font-style: italic;
     color: var(--color-lavender);
     margin-bottom: 35px;
@@ -399,6 +394,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     justify-content: center;
     position: relative;
     overflow: hidden;
+  }
+
+  .timeline-card-img.no-bg {
+    background: none;
+  }
+  .timeline-card-img.no-bg::before {
+    display: none;
   }
 
   .timeline-card-img::before {
@@ -583,8 +585,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* Responsive */
   @media (max-width: 1024px) {
-    .hero-split { flex-direction: column; }
-    .hero-photo-side { flex: 0 0 auto; width: 100%; padding: 40px 30px 20px; }
+    .hero-split { flex-direction: column-reverse; }
+    .hero-photo-side { flex: 0 0 auto; width: 100%; padding: 20px 30px 40px; }
     .hero-photo-container { max-width: 400px; }
     .hero-content-side { width: 100%; padding: 40px 30px 60px; text-align: center; }
     .hero-names { font-size: 70px; }
@@ -601,8 +603,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .hero-title-script { font-size: 34px; }
     .hero-subtitle { font-size: 18px; }
     .hero-location { font-size: 16px; }
-    .countdown-hero { gap: 15px; }
-    .countdown-num { font-size: 32px; }
+    .countdown-hero { gap: 10px; flex-wrap: nowrap; }
+    .countdown-item { min-width: 0; flex: 1; padding: 16px 8px; }
+    .countdown-num { font-size: 28px; }
+    .countdown-separator { font-size: 20px; }
     .cards-grid { grid-template-columns: 1fr; }
   }
 

@@ -9,14 +9,25 @@ import PageHeader from '../components/PageHeader.astro';
   <section class="page-content">
     <div class="container-narrow">
       <div class="weather-info">
-        <h2>Météo en octobre à Pont-Aven</h2>
-        <p><strong>Températures moyennes :</strong> 12-16°C</p>
-        <p>La pluie est possible en Bretagne, prévoyez un parapluie ou une étole !</p>
+        <h2>Météo début octobre à Pont-Aven</h2>
+        <p><strong>Températures moyennes :</strong> 12-18°C — les soirées peuvent être fraîches, pensez à apporter une étole.</p>
+        <p>Bien que rare en Bretagne, quelques gouttes de pluie peuvent parfois surprendre - un parapluie dans votre sac ne sera pas de trop 😜</p>
       </div>
 
       <div class="dress-section">
+        <img src="/images/ceremonie-hindoue.png" alt="Cérémonie hindoue" class="dress-illustration">
         <h2>Vendredi - Cérémonie hindoue</h2>
-        <p class="dress-description">Osez les couleurs éclatantes : rouge, orange, fuchsia, turquoise, doré...</p>
+        <p class="dress-description">Osez les couleurs éclatantes !</p>
+        <div class="color-swatches">
+          <span class="swatch" style="background: #e60000;" title="Rouge"></span>
+          <span class="swatch" style="background: #ff8c00;" title="Orange"></span>
+          <span class="swatch" style="background: #ff0080;" title="Fuchsia"></span>
+          <span class="swatch" style="background: #00b4d8;" title="Turquoise"></span>
+          <span class="swatch" style="background: #ffd700;" title="Doré"></span>
+          <span class="swatch" style="background: #047857;" title="Vert émeraude"></span>
+          <span class="swatch" style="background: #ff1493;" title="Rose vif"></span>
+          <span class="swatch" style="background: #7c3aed;" title="Violet"></span>
+        </div>
         <p class="dress-avoid"><strong>À éviter :</strong> le noir et le blanc</p>
         <div class="dress-tip">
           <p><strong>Conseil :</strong> Les tenues traditionnelles indiennes (saris, kurtas) sont les bienvenues si vous en avez !</p>
@@ -24,11 +35,18 @@ import PageHeader from '../components/PageHeader.astro';
       </div>
 
       <div class="dress-section">
-        <h2>Samedi - Célébration de mariage et réception</h2>
-        <p class="dress-description">Venez sur votre 31 ! Ambiance Festival de Cannes</p>
+        <img src="/images/eglise.png" alt="Église" class="dress-illustration">
+        <h2>Samedi - Bénédiction de mariage et réception</h2>
+        <p class="dress-description">Venez sur votre 31 ! Ambiance Festival de Cannes : costumes, robes de soirée, nœuds papillon...</p>
         <div class="dress-tip">
-          <p><strong>Conseil :</strong> Prévoyez une étole ou un châle pour l'église et la fraîcheur bretonne en soirée</p>
+          <p><strong>Conseil :</strong> Prévoyez une étole ou un châle pour l'église</p>
         </div>
+      </div>
+
+      <div class="dress-section">
+        <img src="/images/reception.png" alt="Petit-déjeuner" class="dress-illustration">
+        <h2>Dimanche - Petit-déjeuner</h2>
+        <p class="dress-description">Tenue décontractée.<br>Les lunettes de soleil sont autorisées pour camoufler la nuit 🕶️</p>
       </div>
     </div>
   </section>
@@ -59,6 +77,27 @@ import PageHeader from '../components/PageHeader.astro';
     font-size: 17px;
     color: var(--color-text);
     margin: 8px 0;
+  }
+
+  .dress-illustration {
+    display: block;
+    max-width: 250px;
+    margin: 0 auto 20px;
+  }
+
+  .color-swatches {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .swatch {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border: 2px solid white;
   }
 
   .dress-section {
