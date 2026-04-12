@@ -96,6 +96,7 @@ import PageHeader from '../components/PageHeader.astro';
         <!-- Transport -->
         <div class="form-section">
           <h2>Transport</h2>
+          <p class="help-text">Si vous proposez ou cherchez un covoiturage, nous vous mettrons en relation avec d'autres invités.</p>
 
           <div class="form-group">
             <label>Covoiturage</label>
@@ -113,7 +114,6 @@ import PageHeader from '../components/PageHeader.astro';
                 <span>Je ne suis pas concerné(e)</span>
               </label>
             </div>
-            <p class="help-text">Si vous proposez ou cherchez un covoiturage, nous vous mettrons en relation avec d'autres invités</p>
           </div>
 
           <div class="form-group">
@@ -142,6 +142,11 @@ import PageHeader from '../components/PageHeader.astro';
               </label>
             </div>
           </div>
+
+          <div class="form-group" id="nbEnfantsGardeGroup" style="display:none;">
+            <label for="nb-enfants-garde">Nombre d'enfants à garder</label>
+            <input type="number" id="nb-enfants-garde" name="nb-enfants-garde" min="1" max="10" class="inline-input inline-number">
+          </div>
         </div>
 
         <!-- Messages -->
@@ -159,6 +164,18 @@ import PageHeader from '../components/PageHeader.astro';
 </BaseLayout>
 
 <script>
+  // Show/hide nb enfants à garder
+  const babysitterRadios = document.querySelectorAll('input[name="babysitter"]');
+  const nbEnfantsGardeGroup = document.getElementById('nbEnfantsGardeGroup');
+  babysitterRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      const val = (document.querySelector('input[name="babysitter"]:checked') as HTMLInputElement)?.value;
+      if (nbEnfantsGardeGroup) {
+        nbEnfantsGardeGroup.style.display = val === 'oui' ? 'block' : 'none';
+      }
+    });
+  });
+
   // Dynamic guest list
   const guestList = document.getElementById('guestList')!;
   const addGuestBtn = document.getElementById('addGuestBtn')!;
@@ -307,9 +324,11 @@ import PageHeader from '../components/PageHeader.astro';
       const chorale = (document.querySelector('input[name="chorale"]:checked') as HTMLInputElement)?.value || '';
       const musician = (document.querySelector('input[name="musician"]:checked') as HTMLInputElement)?.value || '';
       const instrument = (document.querySelector('[name="instrument"]') as HTMLInputElement)?.value || '';
-      const carpooling = Array.from(document.querySelectorAll('input[name="carpooling"]:checked')).map((el) => (el as HTMLInputElement).value).join(', ');
-      const carpoolSeats = (document.querySelector('[name="carpool-seats"]') as HTMLInputElement)?.value || '';
-      const message = (document.getElementById('message') as HTMLTextAreaElement)?.value || '';
+      const carpooling = Array.from(document.querySelectorAll('input[name="covoiturage"]:checked')).map((el) => (el as HTMLInputElement).value).join(', ');
+      const ville = (document.getElementById('ville') as HTMLInputElement)?.value || '';
+      const carpoolSeats = (document.querySelector('[name="places"]') as HTMLInputElement)?.value || '';
+      const babysitter = (document.querySelector('input[name="babysitter"]:checked') as HTMLInputElement)?.value || '';
+      const nbEnfantsGarde = (document.getElementById('nb-enfants-garde') as HTMLInputElement)?.value || '';
 
       const payload = {
         guests,
@@ -319,8 +338,10 @@ import PageHeader from '../components/PageHeader.astro';
         musician,
         instrument,
         carpooling,
+        ville,
         carpoolSeats,
-        message
+        babysitter,
+        nbEnfantsGarde
       };
 
       // Disable submit button
