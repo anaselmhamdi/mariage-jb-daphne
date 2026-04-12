@@ -25,12 +25,13 @@ import PageHeader from '../components/PageHeader.astro';
         </div>
 
         <div class="event-block">
-          <div class="time-badge">7h30</div>
-          <h4>Cérémonie hindoue traditionnelle</h4>
+          <div class="time-badge">9h00</div>
+          <h4>Cérémonie hindoue</h4>
         </div>
         <div class="event-block">
-          <div class="time-badge">11h00</div>
+          <div class="time-badge">12h30</div>
           <h4>Déjeuner placé</h4>
+          <p><strong>Thali végétarien tamoul</strong> - un repas complet de 15 préparations servi sur feuille de bananier : riz, dals, légumes épicés, chutneys, papadums et dessert sucré.</p>
         </div>
 
         <p class="info-note">Parking disponible sur place</p>
@@ -275,5 +276,15 @@ import PageHeader from '../components/PageHeader.astro';
   @media (max-width: 768px) {
     .day-section { padding: 30px 25px; }
     .important-note { padding: 30px 25px; }
+    .venue-header { flex-direction: column; align-items: flex-start; }
+    .day-illustration { max-width: 180px; }
+    .day-title { font-size: 20px; }
+    .event-title { font-size: 18px; }
+    .venue-info h4, .venue-info p { font-size: 14px; }
+    .event-block h4 { font-size: 16px; }
+    .info-note { font-size: 13px; }
+    .extra-info h4 { font-size: 16px; }
+    .extra-info p { font-size: 13px; }
+    .time-badge { font-size: 16px; padding: 6px 16px; }
   }
 </style>

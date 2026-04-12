@@ -126,7 +126,6 @@ import PageHeader from '../components/PageHeader.astro';
         <div class="transport-grid">
           <div class="transport-item">
             <h3>En avion</h3>
-            <p><strong>Aéroport de Quimper-Cornouaille</strong> (30 minutes)</p>
             <p><strong>Aéroport de Brest-Bretagne</strong> (1h15)</p>
             <p class="transport-note">Location de voiture recommandée à l'arrivée</p>
           </div>
@@ -179,8 +178,8 @@ import PageHeader from '../components/PageHeader.astro';
     position: absolute;
     top: 20px;
     right: 20px;
-    background: var(--color-purple-dark);
-    color: var(--color-white);
+    background: var(--color-green);
+    color: var(--color-dark);
     padding: 8px 20px;
     border-radius: 20px;
     font-size: 13px;
@@ -346,6 +345,10 @@ import PageHeader from '../components/PageHeader.astro';
     .featured-badge { position: static; display: inline-block; margin-bottom: 15px; }
     .special-offer { padding: 15px 20px; }
     .transport-section { padding: 30px 20px; }
+    .transport-grid { grid-template-columns: 1fr; gap: 20px; }
+    .transport-item { padding: 20px; }
+    .transport-item h3 { font-size: 18px; }
+    .transport-item p { font-size: 14px; }
     .other-options { padding: 25px 20px; }
   }
 </style>

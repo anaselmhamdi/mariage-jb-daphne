@@ -166,9 +166,11 @@ const navItems = [
     border-radius: 2px;
   }
 
-  .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translateY(8px); }
+  .nav-toggle.active { gap: 0; justify-content: center; align-items: center; }
+  .nav-toggle.active span { position: absolute; }
+  .nav-toggle.active span:nth-child(1) { transform: rotate(45deg); }
   .nav-toggle.active span:nth-child(2) { opacity: 0; }
-  .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
+  .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg); }
 
   @media (max-width: 1024px) {
     .nav-menu {

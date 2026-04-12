@@ -10,8 +10,8 @@ import PageHeader from '../components/PageHeader.astro';
     <div class="container-narrow">
       <div class="weather-info">
         <h2>Météo début octobre à Pont-Aven</h2>
-        <p><strong>Températures moyennes :</strong> 12-18°C — les soirées peuvent être fraîches, pensez à apporter une étole.</p>
-        <p>Bien que rare en Bretagne, quelques gouttes de pluie peuvent parfois surprendre - un parapluie dans votre sac ne sera pas de trop 😜</p>
+        <p><strong>Températures moyennes :</strong> 12-18°C - les soirées peuvent être fraîches, pensez à apporter une étole.</p>
+        <p>Bien que rares en Bretagne, quelques gouttes de pluie peuvent parfois surprendre - un parapluie dans votre sac ne sera pas de trop 😜</p>
       </div>
 
       <div class="dress-section">
@@ -28,16 +28,16 @@ import PageHeader from '../components/PageHeader.astro';
           <span class="swatch" style="background: #ff1493;" title="Rose vif"></span>
           <span class="swatch" style="background: #7c3aed;" title="Violet"></span>
         </div>
-        <p class="dress-avoid"><strong>À éviter :</strong> le noir et le blanc</p>
+        <p class="dress-avoid"><strong>À éviter :</strong> le noir</p>
         <div class="dress-tip">
-          <p><strong>Conseil :</strong> Les tenues traditionnelles indiennes (saris, kurtas) sont les bienvenues si vous en avez !</p>
+          <p><strong>Conseil :</strong> Les tenues traditionnelles (saris pour les femmes, veshti pour les hommes) sont les bienvenues si vous en avez !</p>
         </div>
       </div>
 
       <div class="dress-section">
         <img src="/images/eglise.png" alt="Église" class="dress-illustration">
         <h2>Samedi - Bénédiction de mariage et réception</h2>
-        <p class="dress-description">Venez sur votre 31 ! Ambiance Festival de Cannes : costumes, robes de soirée, nœuds papillon...</p>
+        <p class="dress-description">Venez sur votre 31... c'est le moment de briller !</p>
         <div class="dress-tip">
           <p><strong>Conseil :</strong> Prévoyez une étole ou un châle pour l'église</p>
         </div>
@@ -46,7 +46,7 @@ import PageHeader from '../components/PageHeader.astro';
       <div class="dress-section">
         <img src="/images/reception.png" alt="Petit-déjeuner" class="dress-illustration">
         <h2>Dimanche - Petit-déjeuner</h2>
-        <p class="dress-description">Tenue décontractée.<br>Les lunettes de soleil sont autorisées pour camoufler la nuit 🕶️</p>
+        <p class="dress-description">Tenue décontractée.<br>Les lunettes de soleil sont autorisées pour camoufler la courte nuit 🕶️</p>
       </div>
     </div>
   </section>
@@ -87,6 +87,7 @@ import PageHeader from '../components/PageHeader.astro';
 
   .color-swatches {
     display: flex;
+    flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 20px;
   }
@@ -94,6 +95,7 @@ import PageHeader from '../components/PageHeader.astro';
   .swatch {
     width: 36px;
     height: 36px;
+    min-width: 36px;
     border-radius: 50%;
     display: inline-block;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
