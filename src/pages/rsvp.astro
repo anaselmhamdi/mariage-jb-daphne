@@ -261,11 +261,14 @@ import PageHeader from '../components/PageHeader.astro';
     errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwV8Rz16CUuWFyTrnxe5kLieaNV7XccP_RhyLl_rPwfulC3glqqG-CX3uEVpDKFu54C/exec';
+
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       errorEl.style.display = 'none';
 
+      // Validation
       const guestRows = guestList.querySelectorAll('.guest-row');
       if (guestRows.length === 0) {
         showError('Veuillez ajouter au moins un invité.');
@@ -278,9 +281,73 @@ import PageHeader from '../components/PageHeader.astro';
         return;
       }
 
-      form.style.display = 'none';
-      successEl.style.display = 'block';
-      successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Collect guest data
+      const guests: any[] = [];
+      guestRows.forEach((row) => {
+        const idx = row.getAttribute('data-index');
+        const type = (row.querySelector(`[name="guest-type-${idx}"]`) as HTMLSelectElement)?.value;
+        const prenom = (row.querySelector(`[name="guest-prenom-${idx}"]`) as HTMLInputElement)?.value;
+        const nom = (row.querySelector(`[name="guest-nom-${idx}"]`) as HTMLInputElement)?.value;
+        const age = (row.querySelector(`[name="guest-age-${idx}"]`) as HTMLInputElement)?.value;
+        const menu = (row.querySelector(`[name="guest-menu-${idx}"]`) as HTMLSelectElement)?.value;
+
+        if (prenom && nom) {
+          guests.push({ type, prenom, nom, age: age || '', menu: menu || '' });
+        }
+      });
+
+      if (guests.length === 0) {
+        showError('Veuillez remplir le prénom et nom de chaque invité.');
+        return;
+      }
+
+      // Collect other fields
+      const eventsArr = Array.from(events).map((el) => (el as HTMLInputElement).value);
+      const dietary = (document.getElementById('dietary') as HTMLTextAreaElement)?.value || '';
+      const chorale = (document.querySelector('input[name="chorale"]:checked') as HTMLInputElement)?.value || '';
+      const musician = (document.querySelector('input[name="musician"]:checked') as HTMLInputElement)?.value || '';
+      const instrument = (document.querySelector('[name="instrument"]') as HTMLInputElement)?.value || '';
+      const carpooling = Array.from(document.querySelectorAll('input[name="carpooling"]:checked')).map((el) => (el as HTMLInputElement).value).join(', ');
+      const carpoolSeats = (document.querySelector('[name="carpool-seats"]') as HTMLInputElement)?.value || '';
+      const message = (document.getElementById('message') as HTMLTextAreaElement)?.value || '';
+
+      const payload = {
+        guests,
+        events: eventsArr,
+        dietary,
+        chorale,
+        musician,
+        instrument,
+        carpooling,
+        carpoolSeats,
+        message
+      };
+
+      // Disable submit button
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi en cours...';
+      }
+
+      try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload)
+        });
+
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        showError('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Envoyer ma réponse';
+        }
+      }
     });
   }
 </script>
