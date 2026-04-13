@@ -13,8 +13,46 @@ import PageHeader from '../components/PageHeader.astro';
         <p>Si vous le souhaitez, vous pouvez  contribuer à notre voyage de noces ou à nos projets de vie sur notre compte joint ou directement lors de la réception.</p>
 
         <div class="rib-section">
-          <h3>RIB</h3>
-          <p class="rib-placeholder">[Coordonnées bancaires]</p>
+          <h3>Nos coordonnées bancaires</h3>
+          <dl class="rib-details">
+            <div class="rib-row">
+              <dt>Titulaire du compte</dt>
+              <dd>M. DELAUNAY ou Mlle SAVOUNDIRARADJANE</dd>
+            </div>
+            <div class="rib-row">
+              <dt>IBAN</dt>
+              <dd>FR76 4061 8803 5800 0407 8529 555</dd>
+            </div>
+            <div class="rib-row">
+              <dt>BIC</dt>
+              <dd>BOUSFRPPXXX</dd>
+            </div>
+            <div class="rib-row">
+              <dt>Domiciliation</dt>
+              <dd>44 rue Traversière, CS 80134, 92772 Boulogne-Billancourt Cedex, France</dd>
+            </div>
+          </dl>
+          <details class="rib-more">
+            <summary>Détails complémentaires</summary>
+            <dl class="rib-details">
+              <div class="rib-row">
+                <dt>Code banque</dt>
+                <dd>40618</dd>
+              </div>
+              <div class="rib-row">
+                <dt>Code guichet</dt>
+                <dd>80358</dd>
+              </div>
+              <div class="rib-row">
+                <dt>N° de compte</dt>
+                <dd>00040785295</dd>
+              </div>
+              <div class="rib-row">
+                <dt>Clé RIB</dt>
+                <dd>55</dd>
+              </div>
+            </dl>
+          </details>
         </div>
 
         <p class="thank-you">Merci du fond du cœur !</p>
@@ -42,11 +80,8 @@ import PageHeader from '../components/PageHeader.astro';
   }
 
   .rib-section {
-    background: var(--color-beige);
-    padding: 40px;
-    border-radius: 15px;
-    margin: 50px 0;
-    border: 2px solid var(--color-lavender);
+    padding: 30px 0;
+    margin: 40px 0;
   }
 
   .rib-section h3 {
@@ -56,10 +91,65 @@ import PageHeader from '../components/PageHeader.astro';
     font-family: var(--font-heading);
   }
 
-  .rib-placeholder {
+  .rib-details {
+    text-align: left;
+    margin: 0;
+  }
+
+  .rib-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--color-purple-light);
+  }
+
+  .rib-row:last-child {
+    border-bottom: none;
+  }
+
+  .rib-row dt {
+    flex: 0 0 180px;
+    font-weight: 600;
+    color: var(--color-dark);
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .rib-row dd {
+    flex: 1;
+    margin: 0;
     font-size: 16px;
     color: var(--color-text);
-    font-style: italic;
+    word-break: break-word;
+  }
+
+  .rib-more {
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  .rib-more summary {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-purple-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    font-family: var(--font-nav);
+  }
+
+  .rib-more[open] summary {
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .rib-section { padding: 25px 20px; }
+    .rib-row { flex-direction: column; gap: 4px; padding: 10px 0; }
+    .rib-row dt { flex: none; font-size: 13px; }
+    .rib-row dd { font-size: 15px; }
   }
 
   .thank-you {

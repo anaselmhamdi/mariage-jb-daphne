@@ -198,6 +198,15 @@ a {
   background: var(--color-purple-dark);
 }
 
+.btn-map:visited {
+  color: var(--color-white);
+}
+
+.btn-map:active {
+  background: var(--color-pink);
+  color: var(--color-white);
+}
+
 .intro-text {
   background: var(--color-beige);
   padding: 40px 50px;

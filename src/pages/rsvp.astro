@@ -12,6 +12,7 @@ import PageHeader from '../components/PageHeader.astro';
         <p>Afin de mieux organiser ce week-end et de nous assurer que tout soit parfait pour vous accueillir, merci de confirmer votre présence <strong>avant le 30 juin 2026</strong>.</p>
         <p>Précisez-nous les jours où vous serez présents et si vous avez des besoins particuliers (régime alimentaire, etc.).</p>
         <p><strong>Nous avons hâte de célébrer avec vous !</strong></p>
+        <p class="required-note">Les champs marqués d'un&nbsp;<span class="required-star">*</span> sont obligatoires.</p>
       </div>
 
       <form class="rsvp-form" id="rsvpForm">
@@ -65,28 +66,42 @@ import PageHeader from '../components/PageHeader.astro';
           <p class="help-text">Nous cherchons des volontaires pour former une chorale durant la bénédiction à l'église.</p>
 
           <div class="form-group">
-            <label>Seriez-vous intéressé(e) pour participer à la chorale ?</label>
+            <label>Seriez-vous intéressé(e) pour participer à la chorale ?&nbsp;<span class="required-star">*</span></label>
             <div class="radio-group">
               <label class="radio-label">
                 <input type="radio" name="chorale" value="oui">
                 <span>Oui, avec plaisir !</span>
               </label>
+              <div class="conditional-field" id="choraleQuiGroup" style="display:none;">
+                <label for="chorale-qui">Qui est intéressé(e) ?&nbsp;<span class="required-star">*</span></label>
+                <input type="text" id="chorale-qui" name="chorale-qui" placeholder="Prénom(s)">
+              </div>
               <label class="radio-label">
-                <input type="radio" name="chorale" value="non" checked>
+                <input type="radio" name="chorale" value="non">
                 <span>Non, merci</span>
               </label>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Êtes-vous musicien(ne) ?</label>
+            <label>Êtes-vous musicien(ne) ?&nbsp;<span class="required-star">*</span></label>
             <div class="radio-group">
               <label class="radio-label">
                 <input type="radio" name="musician" value="oui">
-                <span>Oui - Instrument : <input type="text" name="instrument" class="inline-input" placeholder="Précisez"></span>
+                <span>Oui</span>
               </label>
+              <div class="conditional-field" id="musicianDetailsGroup" style="display:none;">
+                <div class="conditional-row">
+                  <label for="musician-qui">Qui est musicien(ne) ?&nbsp;<span class="required-star">*</span></label>
+                  <input type="text" id="musician-qui" name="musician-qui" placeholder="Prénom(s)">
+                </div>
+                <div class="conditional-row">
+                  <label for="instrument">Instrument(s)&nbsp;<span class="required-star">*</span></label>
+                  <input type="text" id="instrument" name="instrument" placeholder="Précisez">
+                </div>
+              </div>
               <label class="radio-label">
-                <input type="radio" name="musician" value="non" checked>
+                <input type="radio" name="musician" value="non">
                 <span>Non</span>
               </label>
             </div>
@@ -99,26 +114,35 @@ import PageHeader from '../components/PageHeader.astro';
           <p class="help-text">Si vous proposez ou cherchez un covoiturage, nous vous mettrons en relation avec d'autres invités.</p>
 
           <div class="form-group">
-            <label>Covoiturage</label>
-            <div class="checkbox-group">
-              <label class="checkbox-label">
-                <input type="checkbox" name="covoiturage" value="propose">
-                <span>Je propose des places dans ma voiture (nombre de places disponibles : <input type="number" name="places" min="1" max="8" class="inline-input inline-number">)</span>
+            <label>Covoiturage&nbsp;<span class="required-star">*</span></label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="covoiturage" value="propose">
+                <span>Je propose des places dans ma voiture</span>
               </label>
-              <label class="checkbox-label">
-                <input type="checkbox" name="covoiturage" value="cherche">
+              <div class="conditional-field" id="proposeGroup" style="display:none;">
+                <div class="conditional-row">
+                  <label for="places">Nombre de places disponibles&nbsp;<span class="required-star">*</span></label>
+                  <input type="number" id="places" name="places" min="1" max="8">
+                </div>
+                <div class="conditional-row">
+                  <label for="ville-propose">Ville de départ&nbsp;<span class="required-star">*</span></label>
+                  <input type="text" id="ville-propose" name="ville-propose" placeholder="Ex : Paris">
+                </div>
+              </div>
+              <label class="radio-label">
+                <input type="radio" name="covoiturage" value="cherche">
                 <span>Je cherche un covoiturage</span>
               </label>
-              <label class="checkbox-label">
-                <input type="checkbox" name="covoiturage" value="non-concerne">
+              <div class="conditional-field" id="chercheGroup" style="display:none;">
+                <label for="ville-cherche">Ville de départ&nbsp;<span class="required-star">*</span></label>
+                <input type="text" id="ville-cherche" name="ville-cherche" placeholder="Ex : Paris">
+              </div>
+              <label class="radio-label">
+                <input type="radio" name="covoiturage" value="non-concerne">
                 <span>Je ne suis pas concerné(e)</span>
               </label>
             </div>
-          </div>
-
-          <div class="form-group">
-            <label for="ville">Ville de départ (si covoiturage)</label>
-            <input type="text" id="ville" name="ville">
           </div>
         </div>
 
@@ -126,39 +150,44 @@ import PageHeader from '../components/PageHeader.astro';
         <div class="form-section">
           <h2>Service de garde d'enfants</h2>
           <div class="form-group">
-            <label>Si une babysitter est mise à disposition pendant la soirée, seriez-vous intéressé(e) ?</label>
+            <label>Si une babysitter est mise à disposition pendant la soirée, seriez-vous intéressé(e) ?&nbsp;<span class="required-star">*</span></label>
             <div class="radio-group">
               <label class="radio-label">
                 <input type="radio" name="babysitter" value="oui">
                 <span>Oui</span>
               </label>
+              <div class="conditional-field" id="nbEnfantsGardeGroup" style="display:none;">
+                <label for="nb-enfants-garde">Nombre d'enfants à garder&nbsp;<span class="required-star">*</span></label>
+                <input type="number" id="nb-enfants-garde" name="nb-enfants-garde" min="1" max="10">
+              </div>
               <label class="radio-label">
                 <input type="radio" name="babysitter" value="non">
                 <span>Non</span>
               </label>
               <label class="radio-label">
-                <input type="radio" name="babysitter" value="non-concerne" checked>
+                <input type="radio" name="babysitter" value="non-concerne">
                 <span>Je ne suis pas concerné(e)</span>
               </label>
             </div>
           </div>
-
-          <div class="form-group" id="nbEnfantsGardeGroup" style="display:none;">
-            <label for="nb-enfants-garde">Nombre d'enfants à garder</label>
-            <input type="number" id="nb-enfants-garde" name="nb-enfants-garde" min="1" max="10" class="inline-input inline-number">
-          </div>
         </div>
 
-        <!-- Messages -->
+        <!-- Error message -->
         <div class="form-message form-error" id="formError" style="display:none;"></div>
-        <div class="form-message form-success" id="formSuccess" style="display:none;">
-          Merci pour votre réponse ! Nous avons bien reçu votre confirmation.
-        </div>
 
         <div class="form-actions">
           <button type="submit" class="btn-submit">Envoyer ma réponse</button>
         </div>
       </form>
+
+      <!-- Success message (outside form so form can be fully hidden) -->
+      <div class="form-message form-success" id="formSuccess" style="display:none;">
+        <div class="success-icon">✓</div>
+        <h3>Merci !</h3>
+        <p>Votre réponse a bien été enregistrée.</p>
+        <p>Nous sommes ravis et avons hâte de célébrer ce moment unique avec vous.</p>
+        <p class="success-signature">À très vite,<br><strong>Daphné &amp; Jean-Baptiste</strong></p>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -176,6 +205,42 @@ import PageHeader from '../components/PageHeader.astro';
     });
   });
 
+  // Show/hide chorale qui
+  const choraleRadios = document.querySelectorAll('input[name="chorale"]');
+  const choraleQuiGroup = document.getElementById('choraleQuiGroup');
+  choraleRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      const val = (document.querySelector('input[name="chorale"]:checked') as HTMLInputElement)?.value;
+      if (choraleQuiGroup) {
+        choraleQuiGroup.style.display = val === 'oui' ? 'block' : 'none';
+      }
+    });
+  });
+
+  // Show/hide covoiturage conditional blocks
+  const covoiturageRadios = document.querySelectorAll('input[name="covoiturage"]');
+  const proposeGroup = document.getElementById('proposeGroup');
+  const chercheGroup = document.getElementById('chercheGroup');
+  covoiturageRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      const val = (document.querySelector('input[name="covoiturage"]:checked') as HTMLInputElement)?.value;
+      if (proposeGroup) proposeGroup.style.display = val === 'propose' ? 'block' : 'none';
+      if (chercheGroup) chercheGroup.style.display = val === 'cherche' ? 'block' : 'none';
+    });
+  });
+
+  // Show/hide musician details
+  const musicianRadios = document.querySelectorAll('input[name="musician"]');
+  const musicianDetailsGroup = document.getElementById('musicianDetailsGroup');
+  musicianRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      const val = (document.querySelector('input[name="musician"]:checked') as HTMLInputElement)?.value;
+      if (musicianDetailsGroup) {
+        musicianDetailsGroup.style.display = val === 'oui' ? 'block' : 'none';
+      }
+    });
+  });
+
   // Dynamic guest list
   const guestList = document.getElementById('guestList')!;
   const addGuestBtn = document.getElementById('addGuestBtn')!;
@@ -189,7 +254,6 @@ import PageHeader from '../components/PageHeader.astro';
     row.dataset.index = String(i);
     row.innerHTML = `
       <div class="guest-row-header">
-        <span class="guest-row-badge">${i}</span>
         <span class="guest-row-type-label">Adulte</span>
         <button type="button" class="btn-remove-guest" title="Supprimer">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -255,11 +319,7 @@ import PageHeader from '../components/PageHeader.astro';
   }
 
   function renumberGuests() {
-    const rows = guestList.querySelectorAll('.guest-row');
-    rows.forEach((row, idx) => {
-      const badge = row.querySelector('.guest-row-badge');
-      if (badge) badge.textContent = String(idx + 1);
-    });
+    // No-op: badges removed
   }
 
   addGuestBtn.addEventListener('click', createGuestRow);
@@ -298,6 +358,58 @@ import PageHeader from '../components/PageHeader.astro';
         return;
       }
 
+      // Required radios
+      const requiredRadios: { name: string; label: string }[] = [
+        { name: 'chorale', label: 'la participation à la chorale' },
+        { name: 'musician', label: 'si vous êtes musicien(ne)' },
+        { name: 'covoiturage', label: 'le covoiturage' },
+        { name: 'babysitter', label: 'le service de garde d\'enfants' },
+      ];
+      for (const r of requiredRadios) {
+        if (!document.querySelector(`input[name="${r.name}"]:checked`)) {
+          showError(`Veuillez répondre à la question sur ${r.label}.`);
+          return;
+        }
+      }
+
+      // Conditional required fields
+      const choraleVal = (document.querySelector('input[name="chorale"]:checked') as HTMLInputElement)?.value;
+      if (choraleVal === 'oui' && !(document.getElementById('chorale-qui') as HTMLInputElement).value.trim()) {
+        showError('Veuillez préciser qui est intéressé(e) par la chorale.');
+        return;
+      }
+      const musicianVal = (document.querySelector('input[name="musician"]:checked') as HTMLInputElement)?.value;
+      if (musicianVal === 'oui') {
+        if (!(document.getElementById('musician-qui') as HTMLInputElement).value.trim()) {
+          showError('Veuillez préciser qui est musicien(ne).');
+          return;
+        }
+        if (!(document.getElementById('instrument') as HTMLInputElement).value.trim()) {
+          showError('Veuillez préciser le ou les instrument(s).');
+          return;
+        }
+      }
+      const covoitVal = (document.querySelector('input[name="covoiturage"]:checked') as HTMLInputElement)?.value;
+      if (covoitVal === 'propose') {
+        if (!(document.getElementById('places') as HTMLInputElement).value.trim()) {
+          showError('Veuillez indiquer le nombre de places disponibles.');
+          return;
+        }
+        if (!(document.getElementById('ville-propose') as HTMLInputElement).value.trim()) {
+          showError('Veuillez indiquer la ville de départ.');
+          return;
+        }
+      }
+      if (covoitVal === 'cherche' && !(document.getElementById('ville-cherche') as HTMLInputElement).value.trim()) {
+        showError('Veuillez indiquer la ville de départ.');
+        return;
+      }
+      const babysitterVal = (document.querySelector('input[name="babysitter"]:checked') as HTMLInputElement)?.value;
+      if (babysitterVal === 'oui' && !(document.getElementById('nb-enfants-garde') as HTMLInputElement).value.trim()) {
+        showError('Veuillez indiquer le nombre d\'enfants à garder.');
+        return;
+      }
+
       // Collect guest data
       const guests: any[] = [];
       guestRows.forEach((row) => {
@@ -322,11 +434,15 @@ import PageHeader from '../components/PageHeader.astro';
       const eventsArr = Array.from(events).map((el) => (el as HTMLInputElement).value);
       const dietary = (document.getElementById('dietary') as HTMLTextAreaElement)?.value || '';
       const chorale = (document.querySelector('input[name="chorale"]:checked') as HTMLInputElement)?.value || '';
+      const choraleQui = (document.getElementById('chorale-qui') as HTMLInputElement)?.value || '';
       const musician = (document.querySelector('input[name="musician"]:checked') as HTMLInputElement)?.value || '';
-      const instrument = (document.querySelector('[name="instrument"]') as HTMLInputElement)?.value || '';
-      const carpooling = Array.from(document.querySelectorAll('input[name="covoiturage"]:checked')).map((el) => (el as HTMLInputElement).value).join(', ');
-      const ville = (document.getElementById('ville') as HTMLInputElement)?.value || '';
-      const carpoolSeats = (document.querySelector('[name="places"]') as HTMLInputElement)?.value || '';
+      const musicianQui = (document.getElementById('musician-qui') as HTMLInputElement)?.value || '';
+      const instrument = (document.getElementById('instrument') as HTMLInputElement)?.value || '';
+      const carpooling = (document.querySelector('input[name="covoiturage"]:checked') as HTMLInputElement)?.value || '';
+      const villePropose = (document.getElementById('ville-propose') as HTMLInputElement)?.value || '';
+      const villeCherche = (document.getElementById('ville-cherche') as HTMLInputElement)?.value || '';
+      const ville = carpooling === 'propose' ? villePropose : carpooling === 'cherche' ? villeCherche : '';
+      const carpoolSeats = (document.getElementById('places') as HTMLInputElement)?.value || '';
       const babysitter = (document.querySelector('input[name="babysitter"]:checked') as HTMLInputElement)?.value || '';
       const nbEnfantsGarde = (document.getElementById('nb-enfants-garde') as HTMLInputElement)?.value || '';
 
@@ -335,7 +451,9 @@ import PageHeader from '../components/PageHeader.astro';
         events: eventsArr,
         dietary,
         chorale,
+        choraleQui,
         musician,
+        musicianQui,
         instrument,
         carpooling,
         ville,
@@ -359,7 +477,11 @@ import PageHeader from '../components/PageHeader.astro';
           body: JSON.stringify(payload)
         });
 
+        // Hide intro + form, only show the success message
         form.style.display = 'none';
+        document.querySelectorAll('.intro-text').forEach((el) => {
+          (el as HTMLElement).style.display = 'none';
+        });
         successEl.style.display = 'block';
         successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } catch (err) {
@@ -435,12 +557,21 @@ import PageHeader from '../components/PageHeader.astro';
   .checkbox-label,
   .radio-label {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     cursor: pointer;
     padding: 14px 16px;
     border-radius: 10px;
     border: 2px solid transparent;
     transition: all 0.2s ease;
+  }
+
+  .checkbox-label span,
+  .radio-label span {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-width: 0;
   }
 
   .checkbox-label:hover,
@@ -466,7 +597,7 @@ import PageHeader from '../components/PageHeader.astro';
   }
 
   .radio-label input[type="radio"] {
-    border-radius: 50%;
+    border-radius: 5px;
   }
 
   .checkbox-label input[type="checkbox"]:checked,
@@ -490,12 +621,13 @@ import PageHeader from '../components/PageHeader.astro';
   .radio-label input[type="radio"]:checked::after {
     content: '';
     position: absolute;
-    left: 5px;
-    top: 5px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: white;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
   }
 
   .checkbox-label span,
@@ -521,6 +653,47 @@ import PageHeader from '../components/PageHeader.astro';
 
   .inline-number { width: 70px; }
 
+  .conditional-field {
+    margin: 0 0 0 38px;
+    padding: 14px 16px;
+    background: var(--color-beige);
+    border-radius: 10px;
+    border-left: 3px solid var(--color-lavender);
+  }
+
+  .conditional-field label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-dark);
+    margin-bottom: 6px;
+  }
+
+  .conditional-field input[type="text"],
+  .conditional-field input[type="number"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: var(--font-body);
+    background: var(--color-white);
+    transition: border-color 0.3s ease;
+  }
+
+  .conditional-field input[type="number"] {
+    max-width: 120px;
+  }
+
+  .conditional-field input:focus {
+    outline: none;
+    border-color: var(--color-lavender);
+  }
+
+  .conditional-row + .conditional-row {
+    margin-top: 12px;
+  }
+
 
   .help-text {
     font-size: 14px;
@@ -528,6 +701,20 @@ import PageHeader from '../components/PageHeader.astro';
     font-style: italic;
     margin-top: 8px;
     margin-bottom: 8px;
+  }
+
+  .required-star {
+    color: var(--color-red);
+    font-weight: 600;
+    margin-left: 2px;
+  }
+
+  .required-note {
+    font-size: 14px !important;
+    font-style: italic;
+    color: var(--color-text);
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
   }
 
   .example-text {
@@ -584,14 +771,87 @@ import PageHeader from '../components/PageHeader.astro';
     background: var(--color-green-light);
     color: var(--color-dark);
     border: 2px solid var(--color-green);
-    font-size: 20px;
-    padding: 40px;
+    padding: 50px 40px;
+    text-align: center;
+  }
+
+  .form-success .success-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: var(--color-green);
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(158, 235, 113, 0.4);
+  }
+
+  .form-success h3 {
     font-family: var(--font-heading);
     font-style: italic;
+    font-size: 28px;
+    color: var(--color-purple-dark);
+    margin-bottom: 20px;
+  }
+
+  .form-success p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+    color: var(--color-text);
+  }
+
+  .success-signature {
+    margin-top: 25px !important;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 18px !important;
+    color: var(--color-purple-dark);
+  }
+
+  @media (max-width: 480px) {
+    .form-success { padding: 35px 20px; }
+    .form-success h3 { font-size: 22px; }
+    .form-success p { font-size: 15px; }
+    .success-signature { font-size: 16px !important; }
   }
 
   @media (max-width: 768px) {
-    .form-section { padding: 30px 25px; }
+    .page-content { padding: 50px 12px; }
+    .form-section { padding: 24px 18px; margin-bottom: 20px; }
+    .form-section h2 { font-size: 19px; margin-bottom: 18px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { font-size: 15px; }
+    .form-group input[type="text"],
+    .form-group textarea { padding: 12px 14px; font-size: 14px; }
+    .checkbox-label, .radio-label { padding: 12px 12px; }
+    .checkbox-label span, .radio-label span { font-size: 14px; }
+    .checkbox-label input[type="checkbox"],
+    .radio-label input[type="radio"] { width: 20px; height: 20px; margin-right: 10px; }
+    .inline-input { padding: 5px 8px; font-size: 13px; }
+    .inline-number { width: 60px; }
+    .btn-submit {
+      padding: 16px 30px;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      width: 100%;
+      max-width: 360px;
+    }
+    .form-message { padding: 16px 20px; font-size: 14px; }
+    .form-success { font-size: 17px; padding: 28px 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .page-content { padding: 40px 8px; }
+    .form-section { padding: 20px 14px; border-radius: 12px; }
+    .form-section h2 { font-size: 17px; }
+    .checkbox-label, .radio-label { padding: 10px 10px; }
+    .checkbox-label span, .radio-label span { font-size: 13px; }
+    .conditional-field { margin-left: 16px; padding: 12px; }
   }
 </style>
 

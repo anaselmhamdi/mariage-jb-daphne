@@ -19,6 +19,7 @@ const navItems = [
 
 <nav class="navbar" id="navbar">
   <div class="nav-container">
+    <a href="/" class="nav-logo" aria-label="Accueil">D&amp;J</a>
     <ul class="nav-menu" id="navMenu">
       {navItems.map((item) => (
         <li>
@@ -91,6 +92,28 @@ const navItems = [
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 30px;
+    position: relative;
+  }
+
+  .nav-logo {
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--color-lavender);
+    text-decoration: none;
+    letter-spacing: 1px;
+    z-index: 1001;
+    transition: color 0.2s;
+  }
+
+  .nav-logo:hover,
+  .nav-logo:active {
+    color: #2563eb;
   }
 
   .nav-menu {
@@ -191,6 +214,7 @@ const navItems = [
     .nav-menu.active { left: 0; }
     .nav-menu li { border-bottom: 1px solid var(--color-beige); }
     .nav-toggle { display: flex; }
+    .nav-logo { display: block; }
 
     .nav-link {
       font-size: 15px;
