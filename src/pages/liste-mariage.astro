@@ -10,7 +10,7 @@ import PageHeader from '../components/PageHeader.astro';
     <div class="container-narrow">
       <div class="gift-message">
         <p>Nous n'avons pas de liste de mariage traditionnelle.</p>
-        <p>Si vous le souhaitez, vous pouvez  contribuer à notre voyage de noces ou à nos projets de vie sur notre compte joint ou directement lors de la réception.</p>
+        <p>Si vous le souhaitez, vous pouvez contribuer à notre voyage de noces ou à nos projets de vie sur notre compte joint ou directement lors de la réception. Une boîte sera présente sur place.</p>
 
         <div class="rib-section">
           <h3>Nos coordonnées bancaires</h3>
@@ -32,27 +32,6 @@ import PageHeader from '../components/PageHeader.astro';
               <dd>44 rue Traversière, CS 80134, 92772 Boulogne-Billancourt Cedex, France</dd>
             </div>
           </dl>
-          <details class="rib-more">
-            <summary>Détails complémentaires</summary>
-            <dl class="rib-details">
-              <div class="rib-row">
-                <dt>Code banque</dt>
-                <dd>40618</dd>
-              </div>
-              <div class="rib-row">
-                <dt>Code guichet</dt>
-                <dd>80358</dd>
-              </div>
-              <div class="rib-row">
-                <dt>N° de compte</dt>
-                <dd>00040785295</dd>
-              </div>
-              <div class="rib-row">
-                <dt>Clé RIB</dt>
-                <dd>55</dd>
-              </div>
-            </dl>
-          </details>
         </div>
 
         <p class="thank-you">Merci du fond du cœur !</p>
@@ -85,10 +64,14 @@ import PageHeader from '../components/PageHeader.astro';
   }
 
   .rib-section h3 {
-    font-size: 24px;
+    font-size: 13px;
+    font-weight: 500;
+    font-style: normal;
     color: var(--color-dark);
-    margin-bottom: 20px;
-    font-family: var(--font-heading);
+    margin-bottom: 14px;
+    font-family: var(--font-nav);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
   }
 
   .rib-details {
@@ -99,9 +82,9 @@ import PageHeader from '../components/PageHeader.astro';
   .rib-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 12px 0;
-    border-bottom: 1px dashed var(--color-purple-light);
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
   }
 
   .rib-row:last-child {
@@ -109,47 +92,24 @@ import PageHeader from '../components/PageHeader.astro';
   }
 
   .rib-row dt {
-    flex: 0 0 180px;
-    font-weight: 600;
+    flex: 0 0 160px;
+    font-weight: 400;
     color: var(--color-dark);
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 13px;
   }
 
   .rib-row dd {
     flex: 1;
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
     color: var(--color-text);
     word-break: break-word;
   }
 
-  .rib-more {
-    margin-top: 20px;
-    text-align: left;
-  }
-
-  .rib-more summary {
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-purple-dark);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 10px 0;
-    font-family: var(--font-nav);
-  }
-
-  .rib-more[open] summary {
-    margin-bottom: 10px;
-  }
-
   @media (max-width: 600px) {
-    .rib-section { padding: 25px 20px; }
-    .rib-row { flex-direction: column; gap: 4px; padding: 10px 0; }
-    .rib-row dt { flex: none; font-size: 13px; }
-    .rib-row dd { font-size: 15px; }
+    .rib-row { flex-direction: column; gap: 2px; padding: 8px 0; }
+    .rib-row dt { flex: none; font-size: 12px; }
+    .rib-row dd { font-size: 13px; }
   }
 
   .thank-you {
