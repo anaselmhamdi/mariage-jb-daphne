@@ -3,13 +3,6 @@ name: Deploy Civil
 on:
   push:
     branches: [main]
-    paths:
-      - 'src/pages/civil.astro'
-      - 'src/layouts/CivilLayout.astro'
-      - 'public/images/civil-*'
-      - 'public/images/mairie-asnieres.png'
-      - 'Dockerfile.civil'
-      - 'fly.civil.toml'
 
 jobs:
   deploy:
