@@ -35,9 +35,12 @@ import CivilLayout from '../layouts/CivilLayout.astro';
 
       <div class="events">
         <div class="event-card">
+          <img src="/images/civil-mairie.jpg" alt="Mairie d'Asnières-sur-Seine" class="event-photo" onerror="this.style.display='none'" />
           <p class="event-time">14h00</p>
           <h3 class="event-title">Cérémonie civile</h3>
           <p class="event-desc">Rendez-vous sur le parvis de la mairie<br>d'Asnières-sur-Seine</p>
+          <p class="event-address">Place de l'Hôtel de Ville<br>92600 Asnières-sur-Seine</p>
+          <a href="https://maps.google.com/?q=Mairie+Asnieres+sur+Seine+92600" target="_blank" class="btn-maps">Voir sur Google Maps</a>
         </div>
 
         <div class="event-divider">
@@ -47,9 +50,28 @@ import CivilLayout from '../layouts/CivilLayout.astro';
         </div>
 
         <div class="event-card">
-          <p class="event-time">17h00</p>
-          <h3 class="event-title">Cocktail dînatoire</h3>
+          <img src="/images/civil-parc.jpg" alt="Parc de Voyer d'Argenson" class="event-photo" onerror="this.style.display='none'" />
+          <p class="event-time">Séance photo &amp; 🥂</p>
+          <h3 class="event-title">Parc de Voyer d'Argenson</h3>
+          <p class="event-desc">À 6-7 min à pied de la mairie</p>
+          <p class="event-address">89 Rue du Château<br>92600 Asnières-sur-Seine</p>
+          <p class="event-note">Rejoignez les Halles Flachat en voiture,<br>ou à pied depuis le parc <span class="note-walk">~24 min</span></p>
+        </div>
+
+        <div class="event-divider">
+          <span class="divider-line"></span>
+          <span class="divider-dot">♡</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <div class="event-card">
+          <img src="/images/civil-halle.jpg" alt="Halle Flachat" class="event-photo" onerror="this.style.display='none'" />
+          <p class="event-time">17h30</p>
+          <h3 class="event-title">Apéro dînatoire · esprit guinguette</h3>
           <p class="event-desc">Halle Flachat · Terrasse<br>Asnières-sur-Seine</p>
+          <p class="event-desc" style="font-size:16px; margin-top: 6px;">Terrasse privatisée jusqu'à minuit 💃</p>
+          <p class="event-address">14 Rue Henri Martin<br>92600 Asnières-sur-Seine</p>
+          <a href="https://maps.google.com/?q=14+Rue+Henri+Martin+92600+Asnieres-sur-Seine" target="_blank" class="btn-maps">Voir sur Google Maps</a>
           <p class="event-note">Le lieu n'est pas entièrement privatisé,<br>d'autres personnes seront présentes sur place.</p>
         </div>
       </div>
@@ -60,10 +82,59 @@ import CivilLayout from '../layouts/CivilLayout.astro';
   <section class="acces">
     <div class="container">
       <h2 class="section-title">Comment venir ?</h2>
-      <p class="acces-address">Mairie d'Asnières-sur-Seine<br>Place de l'Hôtel de Ville, 92600 Asnières-sur-Seine</p>
-      <a href="https://maps.google.com/?q=Mairie+Asnieres+sur+Seine+92600" target="_blank" class="btn-map">
-        Voir sur Google Maps
-      </a>
+      <div class="acces-grid">
+
+        <div class="acces-block">
+          <p class="acces-block-title">🚇 Transports en commun</p>
+          <p class="acces-subgroup" style="margin-top:0">Cérémonie civile — Mairie</p>
+          <ul class="acces-list">
+            <li><strong>Transilien J / L</strong> — Gare d'Asnières-sur-Seine <span class="acces-detail">(depuis Paris Saint-Lazare · 5 min à pied)</span></li>
+            <li><strong>Métro ligne 13</strong> — Asnières-Gennevilliers Les Courtilles <span class="acces-detail">(10 min à pied)</span></li>
+            <li><strong>Bus</strong> — Lignes 54, 138, 167 · Arrêt Hôtel de Ville</li>
+          </ul>
+        </div>
+
+        <div class="acces-block acces-block-parking">
+          <p class="acces-block-title">🅿️ Parkings à proximité</p>
+
+          <p class="acces-subgroup">Cérémonie civile — Mairie</p>
+          <ul class="acces-list">
+            <li>
+              <a href="https://www.indigoneo.fr/fr/parkings/23761/parking-hotel-de-ville" target="_blank" class="acces-link">Parking Hôtel de Ville <span class="acces-places">250 places</span></a>
+              <span class="acces-detail">2 Place Aristide Briand — 92600 Asnières-sur-Seine</span>
+            </li>
+            <li>
+              <a href="https://www.effia.com/parking/parking-asnieres-sur-seine-concorde-i-effia" target="_blank" class="acces-link">Parking Concorde 1 <span class="acces-places">240 places</span></a>
+              <span class="acces-detail">11 Rue de la Concorde — 92600 Asnières-sur-Seine</span>
+            </li>
+            <li>
+              <a href="https://www.effia.com/parking/parking-asnieres-sur-seine-concorde-ii-effia" target="_blank" class="acces-link">Parking Concorde 2 <span class="acces-places">170 places</span></a>
+              <span class="acces-detail">25 Rue de la Concorde — 92600 Asnières-sur-Seine</span>
+            </li>
+          </ul>
+
+          <p class="acces-subgroup">Cocktail — Halle Flachat</p>
+          <ul class="acces-list">
+            <li>
+              <a href="https://www.effia.com/parking/parking-asnieres-sur-seine-flachat-effia" target="_blank" class="acces-link">Parking Flachat <span class="acces-places">120 places</span></a>
+              <span class="acces-detail">20 Rue Benoît Malon — 92600 Asnières-sur-Seine</span>
+            </li>
+            <li>
+              <a href="https://www.effia.com/parking/parking-asnieres-sur-seine-bruyeres-effia" target="_blank" class="acces-link">Parking Des Bruyères <span class="acces-places">110 places</span></a>
+              <span class="acces-detail">7 Rue Roger Campestre — 92600 Asnières-sur-Seine</span>
+            </li>
+          </ul>
+
+          <ul class="acces-list acces-list-footer">
+            <li class="acces-free">✓ Stationnement gratuit le samedi <span class="acces-detail">(sauf zones verte et rouge)</span></li>
+            <li>
+              <a href="https://asnieres-sur-seine.fr/fileadmin/Medias_et_documents/Securite-prevention/Plaquette_stationnement_Mise_a_jour_Avril_2026_A4.pdf" target="_blank" class="acces-link">Guide officiel du stationnement à Asnières</a>
+              <span class="acces-detail">Mise à jour avril 2026</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -208,6 +279,17 @@ import CivilLayout from '../layouts/CivilLayout.astro';
     padding: 40px 20px;
   }
 
+  .event-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: block;
+    box-shadow: 0 8px 24px rgba(42, 54, 85, 0.15);
+    border: 3px solid var(--civil-white);
+  }
+
   .event-time {
     font-family: var(--font-heading);
     font-size: clamp(48px, 7vw, 72px);
@@ -235,6 +317,46 @@ import CivilLayout from '../layouts/CivilLayout.astro';
     color: var(--civil-navy);
     opacity: 0.75;
     line-height: 1.6;
+  }
+
+  .event-address {
+    font-family: var(--font-nav);
+    font-size: 13px;
+    font-style: normal;
+    color: var(--civil-navy);
+    opacity: 0.55;
+    line-height: 1.7;
+    margin-top: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .note-walk {
+    font-weight: 600;
+    color: var(--civil-navy);
+    opacity: 1;
+  }
+
+  .btn-maps {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 7px 18px;
+    border: 1.5px solid var(--civil-navy);
+    color: var(--civil-navy);
+    text-decoration: none;
+    font-family: var(--font-nav);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+  }
+
+  .btn-maps:hover {
+    opacity: 1;
+    background: var(--civil-navy);
+    color: var(--civil-white);
   }
 
   .event-note {
@@ -285,6 +407,106 @@ import CivilLayout from '../layouts/CivilLayout.astro';
     line-height: 1.8;
     margin-bottom: 30px;
     font-style: italic;
+  }
+
+  .acces-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+    text-align: left;
+  }
+
+  .acces-block {
+    background: var(--civil-white);
+    border-radius: 16px;
+    padding: 24px 28px;
+    box-shadow: 0 4px 20px rgba(42, 54, 85, 0.07);
+  }
+
+  .acces-block-title {
+    font-family: var(--font-nav);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--civil-navy);
+    margin-bottom: 16px;
+  }
+
+  .acces-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .acces-list li {
+    font-size: 14px;
+    color: var(--civil-navy);
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+
+  .acces-detail {
+    display: block;
+    font-size: 12px;
+    opacity: 0.6;
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  .acces-subgroup {
+    font-family: var(--font-nav);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--civil-rose);
+    margin: 14px 0 8px;
+    opacity: 0.9;
+  }
+
+  .acces-subgroup:first-of-type {
+    margin-top: 0;
+  }
+
+  .acces-list-footer {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(42, 54, 85, 0.08);
+  }
+
+  .acces-places {
+    font-size: 11px;
+    font-style: normal;
+    background: var(--civil-sky);
+    color: var(--civil-navy);
+    padding: 1px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+
+  .acces-link {
+    color: var(--civil-navy);
+    text-decoration: underline;
+    text-decoration-color: var(--civil-sky);
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .acces-link:hover {
+    color: var(--civil-rose);
+  }
+
+  .acces-free {
+    color: var(--civil-green) !important;
+    opacity: 1 !important;
+    font-weight: 500;
   }
 
   .btn-map {
@@ -347,5 +569,7 @@ import CivilLayout from '../layouts/CivilLayout.astro';
     .acces { padding: 60px 20px; }
     .event-card { padding: 28px 10px; }
     .event-note { font-size: 11px; }
+    .acces-grid { grid-template-columns: 1fr; gap: 16px; }
+    .acces-block { padding: 20px; }
   }
 </style>
