@@ -70,9 +70,9 @@ import CivilLayout from '../layouts/CivilLayout.astro';
           <h3 class="event-title">Apéro dînatoire · esprit guinguette</h3>
           <p class="event-desc">Halle Flachat · Terrasse<br>Asnières-sur-Seine</p>
           <p class="event-desc" style="font-size:16px; margin-top: 6px;">Soirée festive jusqu'à minuit 💃</p>
+          <p class="event-note">Le lieu n'est pas entièrement privatisé,<br>d'autres personnes seront présentes sur place.</p>
           <p class="event-address">14 Rue Henri Martin<br>92600 Asnières-sur-Seine</p>
           <a href="https://maps.google.com/?q=14+Rue+Henri+Martin+92600+Asnieres-sur-Seine" target="_blank" class="btn-maps">Voir sur Google Maps</a>
-          <p class="event-note">Le lieu n'est pas entièrement privatisé,<br>d'autres personnes seront présentes sur place.</p>
         </div>
       </div>
     </div>
@@ -142,6 +142,7 @@ import CivilLayout from '../layouts/CivilLayout.astro';
   <footer class="civil-footer">
     <p class="footer-names">Daphné &amp; Jean-Baptiste</p>
     <p class="footer-date">20 juin 2026 · Asnières-sur-Seine</p>
+    <p class="footer-copy">&copy; 2026 Daphné &amp; Jean-Baptiste · Tous droits réservés</p>
   </footer>
 
 </CivilLayout>
@@ -553,6 +554,16 @@ import CivilLayout from '../layouts/CivilLayout.astro';
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--civil-sky);
+  }
+
+  .footer-copy {
+    font-family: var(--font-nav);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--civil-sky);
+    opacity: 0.5;
+    margin-top: 16px;
+    letter-spacing: 0.5px;
   }
 
   /* ---- RESPONSIVE ---- */
