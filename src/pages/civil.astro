@@ -1,0 +1,351 @@
+---
+import CivilLayout from '../layouts/CivilLayout.astro';
+---
+
+<CivilLayout title="Mariage civil">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-tag">Mariage civil</p>
+        <h1 class="hero-names">
+          Daphné<br>
+          <span class="hero-amp">&amp;</span><br>
+          Jean-Baptiste
+        </h1>
+        <p class="hero-date">Samedi 20 juin 2026</p>
+        <p class="hero-location">Asnières-sur-Seine</p>
+      </div>
+      <div class="hero-illustration">
+        <img
+          src="/images/mairie-asnieres.png"
+          alt="Mairie d'Asnières-sur-Seine"
+          class="mairie-img"
+          onerror="this.style.display='none'"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMME -->
+  <section class="programme">
+    <div class="container">
+      <h2 class="section-title">Programme de la journée</h2>
+
+      <div class="events">
+        <div class="event-card">
+          <p class="event-time">14h00</p>
+          <h3 class="event-title">Cérémonie civile</h3>
+          <p class="event-desc">Rendez-vous sur le parvis de la mairie<br>d'Asnières-sur-Seine</p>
+        </div>
+
+        <div class="event-divider">
+          <span class="divider-line"></span>
+          <span class="divider-dot">♡</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <div class="event-card">
+          <p class="event-time">17h00</p>
+          <h3 class="event-title">Cocktail dînatoire</h3>
+          <p class="event-desc">Halle Flachat · Terrasse<br>Asnières-sur-Seine</p>
+          <p class="event-note">Le lieu n'est pas entièrement privatisé,<br>d'autres personnes seront présentes sur place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCÈS -->
+  <section class="acces">
+    <div class="container">
+      <h2 class="section-title">Comment venir ?</h2>
+      <p class="acces-address">Mairie d'Asnières-sur-Seine<br>Place de l'Hôtel de Ville, 92600 Asnières-sur-Seine</p>
+      <a href="https://maps.google.com/?q=Mairie+Asnieres+sur+Seine+92600" target="_blank" class="btn-map">
+        Voir sur Google Maps
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="civil-footer">
+    <p class="footer-names">Daphné &amp; Jean-Baptiste</p>
+    <p class="footer-date">20 juin 2026 · Asnières-sur-Seine</p>
+  </footer>
+
+</CivilLayout>
+
+<style>
+  /* ---- PALETTE ILLUSTRATION ---- */
+  :root {
+    --civil-sky: #B8D8EA;
+    --civil-sky-light: #DDF0F9;
+    --civil-navy: #2A3655;
+    --civil-navy-light: #3D4F72;
+    --civil-cream: #F7F0E5;
+    --civil-sand: #EAD9BE;
+    --civil-green: #7AAF5E;
+    --civil-rose: #CC8088;
+    --civil-white: #FDFAF6;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    background: linear-gradient(160deg, var(--civil-sky-light) 0%, var(--civil-cream) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 40px;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-direction: row-reverse;
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+
+  .hero-tag {
+    font-family: var(--font-nav);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--civil-navy);
+    border: 1.5px solid var(--civil-navy);
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    opacity: 0.75;
+  }
+
+  .hero-names {
+    font-family: var(--font-heading);
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--civil-navy);
+    line-height: 1.0;
+    margin-bottom: 28px;
+  }
+
+  .hero-amp {
+    font-size: 0.7em;
+    color: var(--civil-rose);
+  }
+
+  .hero-date {
+    font-family: var(--font-nav);
+    font-size: clamp(14px, 2vw, 17px);
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--civil-navy);
+    margin-bottom: 8px;
+    opacity: 0.8;
+  }
+
+  .hero-location {
+    font-family: var(--font-nav);
+    font-size: clamp(12px, 1.5vw, 14px);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--civil-green);
+  }
+
+  .hero-illustration {
+    flex: 0 0 500px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mairie-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(42, 54, 85, 0.14);
+  }
+
+  /* ---- PROGRAMME ---- */
+  .programme {
+    padding: 100px 40px;
+    background: var(--civil-white);
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--civil-navy);
+    margin-bottom: 60px;
+  }
+
+  .events {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .event-card {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .event-time {
+    font-family: var(--font-heading);
+    font-size: clamp(48px, 7vw, 72px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--civil-rose);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .event-title {
+    font-family: var(--font-nav);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--civil-navy);
+    margin-bottom: 14px;
+  }
+
+  .event-desc {
+    font-family: var(--font-heading);
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-style: italic;
+    color: var(--civil-navy);
+    opacity: 0.75;
+    line-height: 1.6;
+  }
+
+  .event-note {
+    margin-top: 16px;
+    font-family: var(--font-nav);
+    font-size: 12px;
+    color: var(--civil-navy);
+    opacity: 0.6;
+    line-height: 1.7;
+    background: var(--civil-sand);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+
+  .event-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 200px;
+    margin: 8px auto;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--civil-rose);
+    opacity: 0.4;
+  }
+
+  .divider-dot {
+    color: var(--civil-rose);
+    font-size: 16px;
+    opacity: 0.7;
+  }
+
+  /* ---- ACCÈS ---- */
+  .acces {
+    padding: 80px 40px;
+    background: linear-gradient(160deg, var(--civil-sky-light) 0%, var(--civil-cream) 100%);
+    text-align: center;
+  }
+
+  .acces-address {
+    font-size: 16px;
+    color: var(--civil-navy);
+    opacity: 0.75;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+
+  .btn-map {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--civil-navy);
+    color: var(--civil-white);
+    text-decoration: none;
+    font-family: var(--font-nav);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(42, 54, 85, 0.2);
+  }
+
+  .btn-map:hover {
+    background: var(--civil-rose);
+    transform: translateY(-2px);
+  }
+
+  /* ---- FOOTER ---- */
+  .civil-footer {
+    padding: 50px 20px;
+    text-align: center;
+    background: var(--civil-navy);
+  }
+
+  .footer-names {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--civil-white);
+    margin-bottom: 8px;
+  }
+
+  .footer-date {
+    font-family: var(--font-nav);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--civil-sky);
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 900px) {
+    .hero { min-height: auto; padding: 60px 30px; }
+    .hero-inner { flex-direction: column; gap: 40px; text-align: center; }
+    .hero-illustration { flex: none; width: 100%; }
+    .mairie-img { max-width: 420px; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 50px 20px; }
+    .programme { padding: 60px 20px; }
+    .acces { padding: 60px 20px; }
+    .event-card { padding: 28px 10px; }
+    .event-note { font-size: 11px; }
+  }
+</style>

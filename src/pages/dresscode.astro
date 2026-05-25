@@ -17,18 +17,27 @@ import PageHeader from '../components/PageHeader.astro';
       <div class="dress-section">
         <img src="/images/ceremonie-hindoue.png" alt="Cérémonie hindoue" class="dress-illustration">
         <h2>Vendredi - Cérémonie hindoue</h2>
-        <p class="dress-description">Osez les couleurs éclatantes !</p>
-        <div class="color-swatches">
-          <span class="swatch" style="background: #e60000;" title="Rouge"></span>
-          <span class="swatch" style="background: #ff8c00;" title="Orange"></span>
-          <span class="swatch" style="background: #ff0080;" title="Fuchsia"></span>
-          <span class="swatch" style="background: #00b4d8;" title="Turquoise"></span>
-          <span class="swatch" style="background: #ffd700;" title="Doré"></span>
-          <span class="swatch" style="background: #047857;" title="Vert émeraude"></span>
-          <span class="swatch" style="background: #ff1493;" title="Rose vif"></span>
-          <span class="swatch" style="background: #7c3aed;" title="Violet"></span>
+        <div class="gender-guide">
+          <div class="gender-row">
+            <span class="gender-label">Femmes</span>
+            <span class="gender-text">Osez les couleurs éclatantes !</span>
+          </div>
+          <div class="color-swatches">
+            <span class="swatch" style="background: #e60000;" title="Rouge"></span>
+            <span class="swatch" style="background: #ff8c00;" title="Orange"></span>
+            <span class="swatch" style="background: #ff0080;" title="Fuchsia"></span>
+            <span class="swatch" style="background: #00b4d8;" title="Turquoise"></span>
+            <span class="swatch" style="background: #ffd700;" title="Doré"></span>
+            <span class="swatch" style="background: #047857;" title="Vert émeraude"></span>
+            <span class="swatch" style="background: #ff1493;" title="Rose vif"></span>
+            <span class="swatch" style="background: #7c3aed;" title="Violet"></span>
+          </div>
+          <div class="gender-row">
+            <span class="gender-label">Hommes</span>
+            <span class="gender-text">Costume dans les tons sombres bienvenu, une touche de couleur (pochette, cravate) est appréciée !</span>
+          </div>
         </div>
-        <p class="dress-avoid"><strong>À éviter :</strong> le noir</p>
+        <p class="dress-avoid"><strong>À éviter pour tous :</strong> le noir</p>
         <div class="dress-tip">
           <p><strong>Conseil :</strong> Les tenues traditionnelles (saris pour les femmes, veshti pour les hommes) sont les bienvenues si vous en avez !</p>
         </div>
@@ -89,7 +98,6 @@ import PageHeader from '../components/PageHeader.astro';
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: 20px;
   }
 
   .swatch {
@@ -125,6 +133,37 @@ import PageHeader from '../components/PageHeader.astro';
     color: var(--color-text);
     margin-bottom: 15px;
     font-weight: 500;
+  }
+
+  .gender-guide {
+    margin-bottom: 20px;
+  }
+
+  .gender-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .gender-label {
+    font-family: var(--font-nav);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-lavender);
+    flex: 0 0 70px;
+  }
+
+  .gender-text {
+    font-size: 16px;
+    color: var(--color-text);
+  }
+
+  .color-swatches {
+    padding-left: 82px;
+    margin-bottom: 14px;
   }
 
   .dress-avoid {
