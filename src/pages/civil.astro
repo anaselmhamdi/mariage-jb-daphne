@@ -36,11 +36,13 @@ import CivilLayout from '../layouts/CivilLayout.astro';
       <div class="events">
         <div class="event-card">
           <img src="/images/civil-mairie.jpg" alt="Mairie d'Asnières-sur-Seine" class="event-photo" onerror="this.style.display='none'" />
-          <p class="event-time">14h00</p>
-          <h3 class="event-title">Cérémonie civile</h3>
-          <p class="event-desc">Rendez-vous sur le parvis de la mairie<br>d'Asnières-sur-Seine</p>
-          <p class="event-address">Place de l'Hôtel de Ville<br>92600 Asnières-sur-Seine</p>
+          <p class="event-time">14h00 — 14h30</p>
+          <h3 class="event-title">Accueil sur le parvis de l'Hôtel de Ville</h3>
+          <p class="event-desc">Cérémonie civile à 15h00</p>
+          <p class="event-note"><strong>Nous rentrons en salle à 14h45 pile.<br>Passé 14h45, les portes seront fermées - soyez à l'heure !</strong></p>
+          <p class="event-address">Mairie d'Asnières-sur-Seine<br>Place de l'Hôtel de Ville, 92600 Asnières-sur-Seine</p>
           <a href="https://maps.google.com/?q=Mairie+Asnieres+sur+Seine+92600" target="_blank" class="btn-maps">Voir sur Google Maps</a>
+          <p class="event-phone-note">📵 <strong>Cérémonie sans téléphone</strong><br><span>Afin de vivre pleinement chaque instant, nous vous demandons de ranger vos téléphones pendant la cérémonie et la sortie des mariés. Notre photographe immortalisera ces moments et partagera les photos après le mariage.</span></p>
         </div>
 
         <div class="event-divider">
@@ -51,10 +53,12 @@ import CivilLayout from '../layouts/CivilLayout.astro';
 
         <div class="event-card">
           <img src="/images/civil-parc.jpg" alt="Parc de Voyer d'Argenson" class="event-photo" onerror="this.style.display='none'" />
-          <p class="event-time">Photos &amp; 🥂</p>
-          <h3 class="event-title">Parc de Voyer d'Argenson</h3>
-          <p class="event-desc">À 6-7 min à pied de la mairie</p>
+          <p class="event-time">16h00</p>
+          <h3 class="event-title">Photos &amp; champagne 🥂</h3>
+          <p class="event-desc">La mairie accueille d'autres cérémonies après la nôtre. On vous donne rendez-vous au Parc de Voyer d'Argenson pour trinquer ensemble et prendre les photos de groupe.</p>
           <p class="event-address">89 Rue du Château<br>92600 Asnières-sur-Seine</p>
+          <p style="font-size: 14px; color: var(--civil-navy); opacity: 0.7; margin: 6px 0 0; font-family: var(--font-nav);">6-7 min à pied depuis la mairie</p>
+          <a href="https://maps.google.com/?q=Parc+Voyer+d'Argenson+89+Rue+du+Château+92600+Asnières-sur-Seine" target="_blank" class="btn-maps">Voir sur Google Maps</a>
           <p class="event-note">Rejoignez ensuite les Halles Flachat en voiture,<br>ou à pied depuis le parc <span class="note-walk">~24 min</span></p>
         </div>
 
@@ -363,15 +367,38 @@ import CivilLayout from '../layouts/CivilLayout.astro';
   .event-note {
     margin: 16px auto 0;
     font-family: var(--font-nav);
-    font-size: 12px;
+    font-size: 13px;
     color: var(--civil-navy);
-    opacity: 0.6;
+    opacity: 0.85;
     line-height: 1.7;
     background: var(--civil-sand);
-    padding: 10px 20px;
+    padding: 12px 22px;
     border-radius: 8px;
     display: block;
     width: fit-content;
+  }
+  .event-note strong {
+    font-weight: 600;
+  }
+  .event-phone-note {
+    margin-top: 20px;
+    font-family: var(--font-nav);
+    font-size: 13px;
+    color: var(--civil-navy);
+    opacity: 0.8;
+    line-height: 1.8;
+    text-align: center;
+    border-top: 1px solid var(--civil-sand);
+    padding-top: 16px;
+  }
+  .event-phone-note strong {
+    font-weight: 600;
+  }
+  .event-phone-note span {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    opacity: 0.85;
   }
 
   .event-divider {
@@ -393,6 +420,36 @@ import CivilLayout from '../layouts/CivilLayout.astro';
     color: var(--civil-rose);
     font-size: 16px;
     opacity: 0.7;
+  }
+
+  /* ---- NOTE IMPORTANTE ---- */
+  .note-importante {
+    padding: 60px 20px;
+    background: var(--civil-sky-light);
+  }
+  .note-card {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .note-icon {
+    font-size: 36px;
+    margin: 0 0 16px;
+  }
+  .note-title {
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 500;
+    color: var(--civil-navy);
+    margin: 0 0 20px;
+  }
+  .note-text {
+    font-family: var(--font-nav);
+    font-size: 15px;
+    color: var(--civil-navy);
+    opacity: 0.85;
+    line-height: 1.8;
+    margin: 0;
   }
 
   /* ---- ACCÈS ---- */
