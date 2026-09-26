@@ -17,8 +17,10 @@ import PageHeader from '../components/PageHeader.astro';
         <div class="venue-info">
           <div class="venue-header">
             <div>
-              <h4>Manoir de Kerangosker</h4>
+              <p><strong>Manoir de Kerangosker</strong></p>
               <p class="address">Rue du Hénan, 29930 Pont-Aven</p>
+              <p class="info-note">Parking disponible sur place</p>
+              <p class="info-note">Accès direct à pied depuis le centre ville par un chemin piéton dans les bois</p>
             </div>
             <a href="https://maps.app.goo.gl/SqaVwyHE2Ti1EXJc9" target="_blank" class="btn-map">Plan d'accès</a>
           </div>
@@ -33,9 +35,6 @@ import PageHeader from '../components/PageHeader.astro';
           <h4>Déjeuner placé</h4>
           <p><strong>Thali végétarien tamoul</strong> - un repas complet de 15 préparations servi sur feuille de bananier : riz, dals, légumes épicés, chutneys, papadums et dessert sucré.</p>
         </div>
-
-        <p class="info-note">Parking disponible sur place</p>
-        <p class="info-note">Accès direct à pied depuis le centre ville par un chemin piéton dans les bois</p>
 
         <div class="extra-info">
           <h4>Après-midi libre</h4>
@@ -57,19 +56,17 @@ import PageHeader from '../components/PageHeader.astro';
                 <p><strong>Église Saint-Philibert de Trégunc</strong></p>
                 <p class="address">Stang Sant Laorans, 29910 Trégunc</p>
                 <p class="distance">(À 10 minutes en voiture de Pont-Aven)</p>
+                <p class="info-note">Parking sur place</p>
+                <p class="info-note confusable-note"><strong>À ne pas confondre</strong> avec l'église paroissiale Saint-Marc, située en centre-ville de Trégunc. L'église Saint-Philibert est plus éloignée, fiez-vous au plan d'accès ou à l'adresse : Stang Sant Laorans.</p>
               </div>
               <a href="https://maps.app.goo.gl/nJYvEQe2mXZXL7Nr8" target="_blank" class="btn-map">Plan d'accès</a>
             </div>
           </div>
-          <p class="info-note">Parking sur place</p>
-          <div class="note-box">
+          <div class="note-box note-box--important">
             <p><strong>Merci d'arriver à 14h00</strong>, la bénédiction commence à 14h30. Nous avons besoin de ce temps pour que tout le monde puisse s'installer avant l'entrée des mariés.</p>
           </div>
           <div class="note-box">
             <p><strong>Note :</strong> Pensez à prendre de la monnaie pour la quête</p>
-          </div>
-          <div class="note-box">
-            <p><strong>À ne pas confondre</strong> avec l'église paroissiale Saint-Marc, située en centre-ville de Trégunc. L'église Saint-Philibert est plus éloignée, fiez-vous au plan d'accès ou à l'adresse : Stang Sant Laorans.</p>
           </div>
         </div>
 
@@ -79,22 +76,31 @@ import PageHeader from '../components/PageHeader.astro';
           <p class="info-note">Rendez-vous au manoir à partir de 17h30.</p>
         </div>
 
+        <div class="venue-info">
+          <div class="venue-header">
+            <div>
+              <p><strong>Manoir de Kerangosker</strong></p>
+              <p class="address">Rue du Hénan, 29930 Pont-Aven</p>
+              <p class="info-note">Parking disponible sur place</p>
+              <p class="info-note">Accès direct à pied depuis le centre ville par un chemin piéton dans les bois</p>
+            </div>
+            <a href="https://maps.app.goo.gl/SqaVwyHE2Ti1EXJc9" target="_blank" class="btn-map">Plan d'accès</a>
+          </div>
+        </div>
+
         <div class="event-block">
           <div class="time-badge">17h30</div>
           <h4>Cocktail</h4>
-          <p class="info-note">Manoir de Kerangosker</p>
         </div>
 
         <div class="event-block">
           <div class="time-badge">20h00</div>
           <h4>Dîner placé</h4>
-          <p class="info-note">Manoir de Kerangosker</p>
         </div>
 
         <div class="event-block">
           <div class="time-badge">23h00</div>
           <h4>Soirée dansante</h4>
-          <p class="info-note">Manoir de Kerangosker</p>
           <p>(jusqu'à 4h du matin !)</p>
         </div>
       </div>
@@ -106,7 +112,15 @@ import PageHeader from '../components/PageHeader.astro';
         <h3 class="event-title">Petit-déjeuner</h3>
 
         <div class="venue-info">
-          <h4>Manoir de Kerangosker</h4>
+          <div class="venue-header">
+            <div>
+              <p><strong>Manoir de Kerangosker</strong></p>
+              <p class="address">Rue du Hénan, 29930 Pont-Aven</p>
+              <p class="info-note">Parking disponible sur place</p>
+              <p class="info-note">Accès direct à pied depuis le centre ville par un chemin piéton dans les bois</p>
+            </div>
+            <a href="https://maps.app.goo.gl/SqaVwyHE2Ti1EXJc9" target="_blank" class="btn-map">Plan d'accès</a>
+          </div>
         </div>
 
         <div class="event-block">
@@ -183,7 +197,7 @@ import PageHeader from '../components/PageHeader.astro';
     font-family: var(--font-heading);
   }
 
-  .venue-info .address { font-size: 16px; color: var(--color-text); margin-bottom: 5px; }
+  .venue-info .address { font-size: 16px; color: var(--color-purple-dark); margin-bottom: 5px; }
   .venue-info .distance { font-size: 15px; color: var(--color-text); font-style: italic; }
 
   .schedule { margin: 25px 0; }
@@ -250,6 +264,10 @@ import PageHeader from '../components/PageHeader.astro';
   }
 
   .note-box p { margin: 0; font-size: 15px; color: var(--color-dark); }
+  .note-box--important {
+    background: #fff4ec;
+    border-left-color: var(--color-orange);
+  }
 
   .back-to-manoir {
     text-align: center;
